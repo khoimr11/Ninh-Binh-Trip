@@ -45,10 +45,10 @@ button{font:inherit;color:inherit}
 .chip{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:99px;font-size:.74rem;font-weight:500;color:var(--ink2);border:1px solid var(--line);background:rgba(255,255,255,.6);white-space:nowrap}
 .num{font-variant-numeric:tabular-nums}
 .topnav{position:fixed;top:calc(16px + var(--safe-t));left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:2px;padding:6px 8px 6px 6px;border-radius:99px}
-.topnav .brand{display:flex;align-items:center;gap:10px;padding-right:12px;margin-right:4px;border-right:1px solid var(--line);text-decoration:none}
+.topnav .brand{display:flex;align-items:center;gap:10px;padding-right:16px;margin-right:8px;border-right:1px solid var(--line);text-decoration:none}
 .topnav .brand img{width:34px;height:34px;border-radius:50%;box-shadow:0 0 0 2px #fff}
 .topnav .brand span{font-family:var(--serif);font-size:1.15rem;font-weight:600;white-space:nowrap}
-.topnav a.l{padding:8px 14px;border-radius:99px;font-size:.82rem;font-weight:500;text-decoration:none;color:var(--ink2);transition:.25s;white-space:nowrap}
+.topnav a.l{padding:8px 12px;border-radius:99px;font-size:.82rem;font-weight:500;text-decoration:none;color:var(--ink2);transition:.25s;white-space:nowrap}
 .topnav a.l.on,.topnav a.l:hover{background:var(--ink);color:#fff}
 .tabbar{display:none}
 @media (max-width:900px){
@@ -294,6 +294,61 @@ footer .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:50px
 @media (max-width:800px){footer .cols{grid-template-columns:1fr}}
 footer .cols h5{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-bottom:10px;font-weight:600}
 footer a{color:rgba(255,255,255,.85)}
+
+/* ---------- Lookbook ---------- */
+.look-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:34px 0 26px;padding-bottom:4px}
+.look-tabs::-webkit-scrollbar{display:none}
+.look-tabs button{flex:none;border:1px solid var(--line);background:rgba(255,255,255,.6);padding:9px 16px;border-radius:99px;cursor:pointer;font-size:.86rem;font-weight:500;color:var(--ink2);transition:.25s;white-space:nowrap}
+.look-tabs button b{font-weight:600;color:var(--ink3);margin-left:6px;font-size:.74rem}
+.look-tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.look-tabs button.on b{color:var(--lav2)}
+.look{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+@media (max-width:1000px){.look{grid-template-columns:1fr}}
+.mason{columns:3 220px;column-gap:10px}
+.tile{position:relative;break-inside:avoid;margin-bottom:10px;border-radius:16px;overflow:hidden;cursor:zoom-in;background:linear-gradient(135deg,var(--soft),var(--rose));min-height:120px}
+.tile img{width:100%;display:block;transition:transform 1s cubic-bezier(.2,.7,.2,1),opacity .6s}
+.tile img.loading{opacity:0;min-height:200px}
+.tile:hover img{transform:scale(1.04)}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 9px;font-size:.74rem;color:#fff;background:linear-gradient(transparent,rgba(20,14,40,.75));opacity:0;transition:.3s}
+.tile:hover figcaption{opacity:1}
+@media (hover:none){.tile figcaption{opacity:1}}
+.tile.err{cursor:default;min-height:160px;display:flex;align-items:flex-end}
+.tile.err figcaption{opacity:1;position:static;background:none;color:var(--ink2);padding:14px}
+.style{padding:24px;border-radius:26px;position:sticky;top:96px}
+@media (max-width:1000px){.style{position:relative;top:0}}
+.style h3{font-family:var(--serif);font-size:2rem;font-weight:600;line-height:1}
+.style .mood{font-size:.86rem;color:var(--ink2);margin:6px 0 16px}
+.style h5{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);font-weight:600;margin:18px 0 8px}
+.sw{display:flex;gap:6px}
+.sw span{flex:1;height:54px;border-radius:12px;position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+.sw span i{position:absolute;left:6px;bottom:4px;font-style:normal;font-size:.58rem;letter-spacing:.04em;color:rgba(255,255,255,.9);text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.duo{display:grid;gap:10px}
+.who{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:12px;border-radius:16px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8)}
+.who .dots{display:flex;flex-direction:column;gap:4px;align-items:center;padding-top:2px}
+.who .dots i{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.who b{font-size:.82rem;font-weight:600}
+.who p{font-size:.84rem;color:var(--ink2);margin-top:2px}
+.style ul{list-style:none;display:grid;gap:6px;font-size:.84rem;color:var(--ink2)}
+.style ul li{padding-left:16px;position:relative}
+.style ul li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--lav)}
+.style ul.no li::before{background:#E58F9B}
+.look-note{margin-top:14px;font-size:.76rem;color:var(--ink3)}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(14,10,28,.94);display:none;flex-direction:column;color:#fff}
+.lb.on{display:flex}
+.lb .stage{flex:1;display:grid;place-items:center;position:relative;overflow:hidden;touch-action:pan-y}
+.lb .stage img{max-width:94vw;max-height:78vh;object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.5);transition:opacity .3s}
+.lb .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 20px calc(14px + var(--safe-b));font-size:.84rem}
+.lb .bar a{color:rgba(255,255,255,.7)}
+.lb .top{display:flex;justify-content:space-between;align-items:center;padding:calc(12px + var(--safe-t)) 16px 0}
+.lb button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;cursor:pointer;display:grid;place-items:center}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%)}
+.lb .nav.l{left:16px}.lb .nav.r{right:16px}
+@media (max-width:700px){.lb .nav{display:none}}
+.lb .strip{display:flex;gap:6px;overflow-x:auto;padding:0 20px 10px;scrollbar-width:none}
+.lb .strip img{width:64px;height:48px;object-fit:cover;border-radius:8px;opacity:.45;cursor:pointer;flex:none;border:2px solid transparent}
+.lb .strip img.on{opacity:1;border-color:#fff}
+.card .more{display:inline-block;margin:14px 0 0 14px;font-size:.78rem;color:#D9CBFA;text-decoration:none;border-bottom:1px solid rgba(217,203,250,.4);cursor:pointer;background:none;border-top:0;border-left:0;border-right:0;padding:0}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -303,13 +358,13 @@ footer a{color:rgba(255,255,255,.85)}
 
 <nav class="topnav glass" aria-label="Điều hướng">
   <a class="brand" href="#home"><img src="assets/logo.png" alt="Logo Khôi & Thư"><span>Khôi & Thư</span></a>
-  <a class="l" href="#journey">Hành trình</a><a class="l" href="#plan">Lịch trình</a><a class="l" href="#places">Điểm đến</a><a class="l" href="#food">Ăn uống</a><a class="l" href="#depart">Khởi hành</a><a class="l" href="#album">Album</a>
+  <a class="l" href="#journey">Hành trình</a><a class="l" href="#plan">Lịch trình</a><a class="l" href="#places">Điểm đến</a><a class="l" href="#look">Lookbook</a><a class="l" href="#food">Ăn uống</a><a class="l" href="#depart">Khởi hành</a><a class="l" href="#album">Album</a>
 </nav>
 <a class="mbrand glass" href="#home"><img src="assets/logo.png" alt=""><span>Khôi & Thư</span></a>
 <nav class="tabbar glass" aria-label="Điều hướng mobile">
   <a href="#home" data-s="home,journey"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Trang chủ</a>
   <a href="#plan" data-s="glance,plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>Lịch trình</a>
-  <a href="#places" data-s="places,food"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20l6-11 4 6 3-4 7 9z"/></svg>Điểm đến</a>
+  <a href="#places" data-s="places,look,food"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20l6-11 4 6 3-4 7 9z"/></svg>Điểm đến</a>
   <a href="#depart" data-s="depart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>Khởi hành</a>
   <a href="#album" data-s="album,book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="12" cy="12" r="3.5"/></svg>Album</a>
 </nav>
@@ -433,6 +488,28 @@ footer a{color:rgba(255,255,255,.85)}
   <div class="rail" id="rail"></div>
   <div class="scrub"><span class="count num" id="count"><b>01</b> / 06</span><input class="range" id="range" type="range" min="0" max="1000" value="0" aria-label="Thanh trượt điểm đến"><span class="drag-hint">Kéo để xem</span></div>
 </section>
+
+
+<!-- LOOKBOOK -->
+<section class="pad" id="look">
+  <div class="wrap">
+    <div class="eyebrow rv">Lookbook</div>
+    <h2 class="h2 rv">Khung cảnh thật <em>& cách phối đồ.</em></h2>
+    <p class="lead rv">Ảnh thực tế của từng điểm, bảng màu và gợi ý trang phục cho Thư & Khôi để lên đồ hợp cảnh. Chạm vào ảnh để xem toàn màn hình, vuốt để chuyển.</p>
+    <div class="look-tabs" id="lookTabs" role="tablist"></div>
+    <div class="look">
+      <div class="mason" id="mason"></div>
+      <aside class="style glass" id="style"></aside>
+    </div>
+    <p class="look-note" id="lookNote">Ảnh từ Unsplash, Pexels (giấy phép miễn phí) và Wikimedia Commons — tên tác giả ghi trong từng ảnh.</p>
+  </div>
+</section>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Xem ảnh">
+  <div class="top"><span id="lbCount" class="num"></span><button id="lbClose" aria-label="Đóng"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="stage" id="lbStage"><button class="nav l" id="lbPrev" aria-label="Ảnh trước"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 5l-7 7 7 7"/></svg></button><img id="lbImg" alt=""><button class="nav r" id="lbNext" aria-label="Ảnh sau"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5l7 7-7 7"/></svg></button></div>
+  <div class="strip" id="lbStrip"></div>
+  <div class="bar"><span id="lbCap"></span><a id="lbSrc" target="_blank" rel="noopener">Nguồn ↗</a></div>
+</div>
 
 <section class="pad" id="food">
   <div class="wrap">
@@ -687,10 +764,145 @@ seg.addEventListener('click',e=>{const b=e.target.closest('button');if(b)showDay
 gl.addEventListener('click',e=>{const b=e.target.closest('.gday');if(b)showDay(+b.dataset.i,true)});
 (()=>{const s=new Date('2026-11-18T00:00:00+07:00');let i=Math.floor((new Date()-s)/864e5);if(i<0||i>4){try{i=+(localStorage.getItem('kt-day')||0)}catch(e){i=0}}showDay(Math.max(0,Math.min(4,i||0)))})();
 
+/* ---------- Lookbook data ---------- */
+const U=(id,w)=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
+const PX=(id,w)=>`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+const src=(g,w)=>g.s=='u'?U(g.id,w):g.s=='p'?PX(g.id,w):C(g.f,w);
+const page=g=>g.s=='u'?'https://unsplash.com/photos/'+g.pg:g.s=='p'?'https://www.pexels.com/photo/'+g.id+'/':CP(g.f);
+const site=g=>g.s=='u'?'Unsplash':g.s=='p'?'Pexels':'Wikimedia Commons';
+const cm=(k,c)=>({s:'c',f:PHOTOS[k].f,a:PHOTOS[k].a,c});
+const GAL={
+ ta:[{s:'u',id:'photo-1740232187966-a42e7e4d1e76',pg:'03RALk-vGHw',a:'Jamison Cameron',c:'Chùa nổi giữa hồ, Tràng An'},
+     {s:'u',id:'photo-1557750255-c76072a7aad1',pg:'PgSxHidgJHQ',a:'Rowan Heuvel',c:'Đền bên mặt nước'},
+     {s:'u',id:'photo-1768245075071-41e815f0355c',pg:'UxmVOGbY0yA',a:'Bernd Dittrich',c:'Hoàng hôn trên núi đá vôi'},
+     cm('ta1','Tràng An buổi chiều'),
+     {s:'p',id:18208587,a:'Pexels',c:'Chùa nổi đền Suối Tiên'},
+     cm('ta2','Những chuyến đò'),
+     {s:'u',id:'photo-1534419068021-43d13b939ead',pg:'I73-kiWh7UI',a:'Hiep Tong',c:'Vách đá nhìn từ trên đò'},
+     cm('ta3','Cửa hang xuyên thuỷ'),
+     {s:'u',id:'photo-1607314657132-c9056e2a1c20',pg:'cNXO5OueLMI',a:'Ricky Nguyen',c:'Bến gỗ ven hồ'}],
+ tc:[{s:'p',id:19757775,a:'Yan Ho',c:'Đò trên mặt nước phẳng lặng'},
+     {s:'p',id:2131928,a:'Pexels',c:'Sông uốn giữa đồng lúa và núi đá'},
+     {s:'p',id:2161554,a:'Quang Nguyen Vinh',c:'Đồng lúa nhìn từ trên cao'},
+     cm('tc1','Tam Cốc – Bích Động'),
+     cm('tc2','Thung lũng lúa'),
+     {s:'u',id:'photo-1560079561-3086e6dbde25',pg:'NjFfzHb6VGk',a:'William Jones',c:'Dòng sông từ trên cao'},
+     cm('tc3','Đường vào Tam Cốc'),
+     {s:'p',id:28949259,a:'Viett Anh',c:'Đò và núi đá'}],
+ hm:[{s:'u',id:'photo-1770410152736-e4bef2f56a55',pg:'AipTshdpqA8',a:'Bernd Dittrich',c:'Bậc đá lên chùa trên đỉnh'},
+     {s:'u',id:'photo-1489258205848-4b9651de165b',pg:'Vc476sSsj4Y',a:'Eila Lifflander',c:'Hoàng hôn trên đỉnh Ngọa Long'},
+     cm('hm1','Hang Múa buổi sáng'),
+     cm('hm2','Toàn cảnh từ đỉnh núi'),
+     {s:'u',id:'photo-1676835492807-794516506bc3',pg:'fX7pH35Fq3w',a:'Filipe Freitas',c:'Hoàng hôn dưới chân Hang Múa'},
+     {s:'c',f:'Sunset in Ninh Hải, Ninh Binh province, Vietnam, 20240202 1722 5403.jpg',a:'Jakub Hałun',c:'Hoàng hôn Ninh Hải'},
+     {s:'c',f:'Ninh Bình - rural road near Mua Cave Feb 2024.jpg',a:'Wikimedia Commons',c:'Đường làng gần Hang Múa'}],
+ tu:[cm('tu1','Thung Ui'),
+     {s:'c',f:'Temple of Emperor Le Dai Hanh, Hoa Lư, Ninh Bình, Vietnam, 20240203 1525 5704.jpg',a:'Jakub Hałun',c:'Kiến trúc cố đô · cùng phong cách'},
+     cm('tu2','Bái Đính · cách Thung Ui ~3km'),
+     {s:'c',f:'VT Ninh Binh - 02 2023 - MIC04236 - Bai Dinh (1) - Insta.jpg',a:'Travelphotographery',c:'Bái Đính lúc chiều'},
+     {s:'p',id:31779225,a:'Pexels',c:'Mái chùa phủ rêu'},
+     {s:'c',f:'Codoj6.JPG',a:'Kien1980v',c:'Cảnh cố đô Hoa Lư'}],
+ hl:[cm('hl1','Phố cổ Hoa Lư'),
+     cm('hl2','Toàn cảnh từ núi Kỳ Lân'),
+     {s:'c',f:'Temple of Emperor Le Dai Hanh, Hoa Lư, Ninh Bình, Vietnam, 20240203 1527 5706.jpg',a:'Jakub Hałun',c:'Đền vua Lê Đại Hành'},
+     {s:'p',id:28677296,a:'HIEU NGUYEN',c:'Ninh Bình giữa núi đá'},
+     {s:'c',f:'Hoa Lu landscape.jpg',a:'Deborah Hong',c:'Cảnh Hoa Lư'}],
+ hn:[cm('hn1','Hồ Gươm & cầu Thê Húc'),
+     {s:'p',id:19504816,a:'Pexels',c:'Tháp Rùa lúc hoàng hôn'},
+     {s:'p',id:29270595,a:'Pexels',c:'Áo dài đỏ bên Hồ Gươm'},
+     {s:'p',id:13881208,a:'Pexels',c:'Cầu Thê Húc'},
+     {s:'p',id:14689770,a:'Hội Nguyễn',c:'Chùa Trấn Quốc lúc hoàng hôn'},
+     cm('hn3','Chùa Trấn Quốc'),
+     {s:'p',id:32105577,a:'one second before sunset',c:'Phố đường tàu về đêm'},
+     {s:'p',id:30592063,a:'Q. Hưng Phạm',c:'Phố Hà Nội đêm đông'},
+     {s:'p',id:32914156,a:'Pexels',c:'Ẩm thực đường phố'},
+     cm('hn2','Cầu Thê Húc về đêm'),
+     {s:'p',id:35583096,a:'Lucas Dang',c:'Hồ Gươm về đêm'}]
+};
+const LOOK=[
+ {k:'ta',name:'Tràng An',mood:'Nước xanh ngọc, núi đá xám rêu, đò gỗ nâu. Cảnh rất “xanh” nên đồ sáng màu sẽ nổi bật.',sw:[['#2F5D50','ngọc'],['#8FB3A0','sage'],['#D9D2C3','đá'],['#6B4E37','gỗ đò'],['#F4EFE6','kem']],
+  thu:[['#F4EFE6','#C9B8F2'],'Đầm/áo trơn màu kem, trắng hoặc lavender nhạt; nón lá hoặc mũ bucket. Mang khăn mỏng vì trong hang mát.'],
+  khoi:[['#EDE6D8','#6B4E37'],'Sơ mi linen trắng/be + quần kaki nâu nhạt — đồng tone kem với Thư.'],
+  yes:['Màu sáng, trơn: kem, trắng, vàng bơ, lavender','Sandal quai hoặc giày êm, dễ bước lên đò','Áo khoác mỏng cho đoạn qua hang'],
+  no:['Xanh lá đậm (chìm vào cảnh)','Màu neon — đá với áo phao cam khi ngồi đò'],time:'08:00–10:00 ánh sáng dịu, mặt nước phẳng'},
+ {k:'tc',name:'Tam Cốc',mood:'Sông Ngô Đồng giữa đồng lúa và núi đá; tháng 11 đồng sau mùa gặt có màu xanh – vàng rơm.',sw:[['#5E7F6E','sông'],['#A7B86A','lúa non'],['#D9B65C','rơm'],['#B8AFA3','núi đá'],['#F4E9D8','be']],
+  thu:[['#FFFFFF','#E9CFE0'],'Áo dài trắng/kem hoặc đầm hoa nhí tone pastel — rất hợp khung đò và đồng lúa.'],
+  khoi:[['#1F2A44','#F4E9D8'],'Sơ mi/polo navy hoặc kem + quần be. Navy làm nền cho đồ sáng của Thư.'],
+  yes:['Tone đất & pastel: be, kem, hồng phấn, xanh navy','Nón lá cho ảnh trên đò','Kính râm'],
+  no:['Váy quá dài/bồng khi lên xuống đò','Giày cao gót'],time:'Chiều 14:00–16:00 nắng xiên, nước phản chiếu đẹp'},
+ {k:'hm',name:'Hang Múa',mood:'~500 bậc đá, rồng đá trên đỉnh; hoàng hôn cam hồng phủ lên thung lũng Tam Cốc.',sw:[['#E46F5A','hoàng hôn'],['#F2A65A','cam'],['#F7D9C4','đào'],['#7A8F6A','núi'],['#4A5A4F','rêu']],
+  thu:[['#FFFFFF','#C9B8F2'],'Áo croptop/áo thun lavender hoặc trắng + quần ống rộng/chân váy chữ A có quần trong; sneaker. Màu trắng & tím sáng rất nổi trong ánh hoàng hôn.'],
+  khoi:[['#F4F1EA','#2F3B33'],'Áo thun trắng/kem + quần short kaki hoặc jogger tối màu, sneaker. Gọn để leo.'],
+  yes:['Giày thể thao đế bám — bắt buộc','Đồ thoáng, co giãn; mang thêm áo khoác mỏng cho lúc xuống tối','Đỏ hoặc trắng nổi bật trên nền núi xanh'],
+  no:['Sandal đế trơn, giày búp bê','Váy ngắn bay (gió trên đỉnh khá mạnh)'],time:'Lên đỉnh trước 16:30, hoàng hôn khoảng 17:15'},
+ {k:'tu',name:'Thung Ui',mood:'Thung lũng cổ, đàn tế đá, mái ngói và gỗ son — rất hợp phong cách cổ phục.',sw:[['#8E2C2C','đỏ son'],['#C9A66B','vàng đồng'],['#6F7F5E','rêu'],['#D8CFC0','đá'],['#3E3A36','gỗ tối']],
+  thu:[['#8E2C2C','#F4EFE6'],'Áo dài hoặc Việt phục tone đỏ đô / kem; tóc búi thấp, trâm cài. Nếu không mặc cổ phục: đầm suông màu kem.'],
+  khoi:[['#F4EFE6','#2B2A33'],'Áo dài nam / sơ mi cổ trụ màu kem hoặc xanh đen + quần tây.'],
+  yes:['Tone đỏ son, kem, nâu gỗ — ăn với kiến trúc','Phụ kiện: quạt giấy, túi cói'],
+  no:['Đồ thể thao, màu neon','Đồ hở vai tại khu vực đền, đàn tế'],time:'13:30–16:00, nắng chiều lên màu gỗ và đá'},
+ {k:'hl',name:'Phố cổ Hoa Lư',mood:'Buổi tối: đèn lồng vàng cam, mái ngói cổ, mặt hồ Kỳ Lân phản chiếu ánh đèn.',sw:[['#F5A623','đèn lồng'],['#C0392B','đỏ'],['#1C2541','đêm'],['#3A506B','hồ'],['#F8E9C8','ngà']],
+  thu:[['#F8E9C8','#C9B8F2'],'Đầm/áo dài màu ngà, trắng hoặc lavender + áo len cardigan mỏng. Màu sáng bắt ánh đèn vàng rất đẹp.'],
+  khoi:[['#C9B8A0','#1C2541'],'Áo len/khoác be + quần tối màu; tông ấm đứng cạnh Thư.'],
+  yes:['Màu sáng hoặc pastel để nổi dưới đèn','Áo khoác: tối tháng 11 se lạnh'],
+  no:['Đen toàn thân (chìm vào nền đêm)','Vải bóng phản sáng đèn flash'],time:'18:00–20:30 khi đèn lồng vừa lên'},
+ {k:'hn',name:'Hà Nội',mood:'Thu Hà Nội: cầu Thê Húc đỏ, tường vàng phố cũ, hàng cây và hồ nước. Tiệc cưới tối 21.11.',sw:[['#C8102E','cầu Thê Húc'],['#E8B04A','tường vàng'],['#4F6D5B','hàng cây'],['#8C7B6B','nâu'],['#F3EDE2','kem']],
+  thu:[['#E8D9C4','#7E57C2'],'Trench coat/blazer be hoặc áo len + chân váy midi; sáng CN có thể mặc áo dài trắng ra Hồ Gươm.'],
+  khoi:[['#8C7B6B','#F3EDE2'],'Cardigan/len mỏng + sơ mi + quần tây. Tối 21.11: sơ mi/vest chỉn chu cho tiệc cưới Ruby.'],
+  yes:['Layer: áo len, khoác mỏng, khăn quàng','Tone be – nâu – kem, điểm một màu đỏ hoặc tím','Giày đi bộ nhiều trong phố cổ'],
+  no:['Đồ mùa hè quá mỏng cho buổi tối','Giày cao gót trên vỉa hè phố cổ'],time:'Sáng sớm 7:00–9:00 ở Hồ Gươm; hoàng hôn ở Hồ Tây'}
+];
+
+/* ---------- Lookbook render ---------- */
+const lookTabs=document.getElementById('lookTabs'),mason=document.getElementById('mason'),styleBox=document.getElementById('style');
+lookTabs.innerHTML=LOOK.map((l,i)=>`<button data-i="${i}" role="tab">${l.name}<b>${GAL[l.k].length}</b></button>`).join('');
+let curLook=0,failCount=0,okCount=0;
+function showLook(i){curLook=i;const l=LOOK[i],g=GAL[l.k];
+  [...lookTabs.children].forEach((b,j)=>b.classList.toggle('on',i==j));
+  mason.innerHTML=g.map((x,j)=>`<figure class="tile" data-j="${j}"><img class="loading" alt="${x.c}" loading="lazy" src="${src(x,800)}"><figcaption>${x.c} · ${x.a}</figcaption></figure>`).join('');
+  mason.querySelectorAll('img').forEach(im=>{im.onload=()=>{im.classList.remove('loading');okCount++};im.onerror=()=>{const t=im.closest('.tile');t.classList.add('err');im.remove();failCount++;checkNote()}});
+  const sw=a=>a.map(c=>`<span style="background:${c[0]}"><i>${c[1]}</i></span>`).join('');
+  const dots=a=>a.map(c=>`<i style="background:${c}"></i>`).join('');
+  styleBox.innerHTML=`<div class="eyebrow">Style guide</div><h3 style="margin-top:10px">${l.name}</h3><p class="mood">${l.mood}</p>
+   <h5>Bảng màu khung cảnh</h5><div class="sw">${sw(l.sw)}</div>
+   <h5>Phối đồ đôi</h5><div class="duo"><div class="who"><div class="dots">${dots(l.thu[0])}</div><div><b>Thư</b><p>${l.thu[1]}</p></div></div><div class="who"><div class="dots">${dots(l.khoi[0])}</div><div><b>Khôi</b><p>${l.khoi[1]}</p></div></div></div>
+   <h5>Nên</h5><ul>${l.yes.map(x=>`<li>${x}</li>`).join('')}</ul>
+   <h5>Tránh</h5><ul class="no">${l.no.map(x=>`<li>${x}</li>`).join('')}</ul>
+   <h5>Giờ chụp đẹp</h5><p style="font-size:.86rem;color:var(--ink2)">${l.time}</p>`;
+  if(window.gsap)gsap.fromTo('#mason .tile',{y:24,opacity:0},{y:0,opacity:1,stagger:.04,duration:.6,ease:'power3.out'});
+}
+function checkNote(){if(failCount>3&&okCount===0)document.getElementById('lookNote').textContent='Không tải được ảnh trong chế độ xem này — mở bản GitHub Pages (khoimr11.github.io/Ninh-Binh-Trip) để xem đầy đủ ảnh thực tế.'}
+lookTabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)showLook(+b.dataset.i)});
+showLook(0);
+window.openLook=k=>{const i=LOOK.findIndex(l=>l.k==k);if(i<0)return;showLook(i);const t=document.getElementById('look');window.__lenis?window.__lenis.scrollTo(t,{offset:-20}):t.scrollIntoView({behavior:'smooth'})};
+
+/* ---------- Lightbox ---------- */
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbStrip=document.getElementById('lbStrip');
+let lbIdx=0;
+function lbShow(j){const g=GAL[LOOK[curLook].k];lbIdx=(j+g.length)%g.length;const x=g[lbIdx];
+  lbImg.style.opacity=0;lbImg.onload=()=>lbImg.style.opacity=1;lbImg.onerror=()=>lbImg.style.opacity=.2;lbImg.src=src(x,1800);lbImg.alt=x.c;
+  document.getElementById('lbCap').textContent=x.c+' — '+x.a+' / '+site(x);
+  const a=document.getElementById('lbSrc');a.href=page(x);
+  document.getElementById('lbCount').textContent=P2(lbIdx+1)+' / '+P2(g.length)+' · '+LOOK[curLook].name;
+  lbStrip.querySelectorAll('img').forEach((im,i)=>im.classList.toggle('on',i==lbIdx));
+  const on=lbStrip.children[lbIdx];if(on)on.scrollIntoView({inline:'center',block:'nearest'});}
+function lbOpen(j){const g=GAL[LOOK[curLook].k];lbStrip.innerHTML=g.map((x,i)=>`<img src="${src(x,160)}" data-i="${i}" alt="">`).join('');lb.classList.add('on');document.body.style.overflow='hidden';if(window.__lenis)window.__lenis.stop();lbShow(j)}
+function lbClose(){lb.classList.remove('on');document.body.style.overflow='';if(window.__lenis)window.__lenis.start()}
+mason.addEventListener('click',e=>{const t=e.target.closest('.tile');if(t&&!t.classList.contains('err'))lbOpen(+t.dataset.j)});
+document.getElementById('lbClose').onclick=lbClose;
+document.getElementById('lbPrev').onclick=()=>lbShow(lbIdx-1);
+document.getElementById('lbNext').onclick=()=>lbShow(lbIdx+1);
+lbStrip.addEventListener('click',e=>{const im=e.target.closest('img');if(im)lbShow(+im.dataset.i)});
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')lbShow(lbIdx+1);if(e.key==='ArrowLeft')lbShow(lbIdx-1)});
+let tx=null;const stage=document.getElementById('lbStage');
+stage.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+stage.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)lbShow(lbIdx+(dx<0?1:-1));tx=null});
+stage.addEventListener('click',e=>{if(e.target===stage)lbClose()});
+
+
 /* places carousel */
 const rail=document.getElementById('rail');
 rail.innerHTML=PLACES.map((p,i)=>`<article class="card"><div class="ph">${FBS[i]}<img data-photo="${p.ph[0]}" alt="${p.name}" class="loading" draggable="false"><div class="thumbs">${p.ph.map((k,j)=>`<button class="${j?'':'on'}" data-k="${k}" aria-label="Ảnh ${j+1}"><img data-thumb="${k}" alt="" draggable="false"></button>`).join('')}</div><div class="over"><div class="idx">${P2(i+1)} — ${P2(PLACES.length)}</div><h3>${p.name}</h3><div class="kick">${p.kick}</div></div><span class="credit" data-credit></span></div>
- <div class="body"><p>${p.desc}</p><div class="kv">${p.kv.map(k=>`<div><small>${k[0]}</small><b>${k[1]}</b></div>`).join('')}</div><div class="tip">${p.tip}</div><a href="${M(p.q)}" target="_blank" rel="noopener">Mở bản đồ ↗</a></div></article>`).join('');
+ <div class="body"><p>${p.desc}</p><div class="kv">${p.kv.map(k=>`<div><small>${k[0]}</small><b>${k[1]}</b></div>`).join('')}</div><div class="tip">${p.tip}</div><a href="${M(p.q)}" target="_blank" rel="noopener">Mở bản đồ ↗</a><button class="more" onclick="openLook('${['ta','tc','hm','tu','hl','hn'][i]}')">Xem ${GAL[['ta','tc','hm','tu','hl','hn'][i]].length} ảnh & gợi ý phối đồ →</button></div></article>`).join('');
 rail.querySelectorAll('img[data-photo]').forEach(i=>loadPhoto(i,i.dataset.photo,1400));
 rail.querySelectorAll('img[data-thumb]').forEach(i=>{const p=PHOTOS[i.dataset.thumb];i.onerror=()=>{const t=i.closest('.thumbs');if(t)t.remove()};i.src=C(p.f,120)});
 rail.addEventListener('click',e=>{const b=e.target.closest('.thumbs button');if(!b)return;const ph=b.closest('.ph');ph.querySelectorAll('.thumbs button').forEach(x=>x.classList.toggle('on',x==b));const img=ph.querySelector('img[data-photo]');if(img){img.dataset.photo=b.dataset.k;loadPhoto(img,b.dataset.k,1400)}});
@@ -740,6 +952,7 @@ document.getElementById('up').addEventListener('change',e=>{const empty=[...ag.q
 document.getElementById('bookList').innerHTML=BOOK.map(b=>`<div class="addr rv"><small>${b[0]}</small><b>${b[1]}</b><p>${b[2]}</p><a href="${M(b[3])}" target="_blank" rel="noopener">Google Maps ↗</a></div>`).join('');
 document.getElementById('photoCredits').innerHTML=[...new Map(Object.values(PHOTOS).map(p=>[p.f,p])).values()].map(p=>`<a href="${CP(p.f)}" target="_blank" rel="noopener">${p.f.replace(/\.(jpe?g)$/i,'')}</a> — ${p.a}, ${p.l}`).join(' · ')+'. Nguồn: Wikimedia Commons.';
 
+
 /* countdown */
 const target=new Date('2026-11-18T17:00:00+07:00');
 function tick(){const s=Math.max(0,(target-new Date())/1000);
@@ -749,7 +962,7 @@ tick();setInterval(tick,1000);
 
 /* nav */
 const navL=[...document.querySelectorAll('.topnav a.l')],tabL=[...document.querySelectorAll('.tabbar a')];
-const ids=['home','journey','glance','plan','places','food','depart','album','book'];
+const ids=['home','journey','glance','plan','places','look','food','depart','album','book'];
 function nav(){let cur='home';for(const id of ids){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<innerHeight*.45)cur=id}
   const map={glance:'plan',book:'album'};navL.forEach(a=>a.classList.toggle('on',a.getAttribute('href')=='#'+(map[cur]||cur)));
   tabL.forEach(a=>a.classList.toggle('on',a.dataset.s.split(',').includes(cur)));
