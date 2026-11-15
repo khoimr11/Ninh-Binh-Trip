@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Khôi ♡ Thư — Hà Nội · Ninh Bình 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mist:#FCFAFF; --lav0:#F3E8FF; --lav1:#E6D2FF; --lav2:#D7BBFF; --lav3:#C7A5FF; --lav4:#AA7DFF;
+  --pale:#D1C4E9; --classic:#9575CD; --deep:#7E57C2; --deeper:#5B3A9A; --ink:#2B1F47; --ink2:#5d5277;
+  --vanilla:#F1D6E4; --peri:#B8C0FF; --blush:#F7C8E0;
+  --glass:rgba(255,255,255,.42); --glass-b:rgba(255,255,255,.75);
+  --r:28px; --safe-b:env(safe-area-inset-bottom,0px); --safe-t:env(safe-area-inset-top,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+body{font-family:"Be Vietnam Pro",system-ui,sans-serif;color:var(--ink);background:var(--mist);overflow-x:hidden;line-height:1.55}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit}
+.serif{font-family:"Playfair Display",serif}
+.hand{font-family:"Dancing Script",cursive}
+
+/* ---------- Aurora background ---------- */
+.aurora{position:fixed;inset:0;z-index:-2;overflow:hidden;background:
+  radial-gradient(120% 80% at 10% 0%,#F3E8FF 0%,transparent 60%),
+  radial-gradient(90% 70% at 100% 30%,#EADCFB 0%,transparent 60%),
+  linear-gradient(180deg,#FCFAFF,#F5EEFF 50%,#F3E5F5)}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.75;mix-blend-mode:multiply;will-change:transform}
+.b1{width:48vmax;height:48vmax;background:#D7BBFF;left:-12vmax;top:-10vmax;animation:drift1 22s ease-in-out infinite}
+.b2{width:40vmax;height:40vmax;background:#F1D6E4;right:-10vmax;top:18vh;animation:drift2 26s ease-in-out infinite}
+.b3{width:36vmax;height:36vmax;background:#C9D0FF;left:20vw;bottom:-14vmax;animation:drift3 30s ease-in-out infinite}
+.b4{width:26vmax;height:26vmax;background:#E6D2FF;right:18vw;bottom:10vh;animation:drift1 34s ease-in-out infinite reverse}
+@keyframes drift1{50%{transform:translate(8vw,10vh) scale(1.12)}}
+@keyframes drift2{50%{transform:translate(-10vw,6vh) scale(.9)}}
+@keyframes drift3{50%{transform:translate(6vw,-12vh) scale(1.1)}}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.18;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.6'/></svg>")}
+
+/* ---------- Liquid glass ---------- */
+.glass{position:relative;background:linear-gradient(140deg,rgba(255,255,255,.62),rgba(255,255,255,.28));
+  -webkit-backdrop-filter:blur(22px) saturate(170%);backdrop-filter:blur(22px) saturate(170%);
+  border:1px solid rgba(255,255,255,.7);border-radius:var(--r);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(126,87,194,.08),0 18px 50px -18px rgba(91,58,154,.35),0 2px 8px rgba(91,58,154,.06);overflow:hidden;isolation:isolate}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:radial-gradient(420px circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.75),transparent 45%);opacity:.7;transition:opacity .3s}
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;padding:1px;
+  background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(199,165,255,.25) 40%,rgba(255,255,255,.1) 60%,rgba(170,125,255,.45));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.glass.dark{background:linear-gradient(140deg,rgba(60,40,110,.55),rgba(40,26,80,.35));border-color:rgba(255,255,255,.18);color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 20px 60px -20px rgba(20,8,50,.6)}
+.chip{display:inline-flex;align-items:center;gap:.4em;padding:.38em .85em;border-radius:99px;font-size:.78rem;font-weight:600;
+  background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.9);color:var(--deep);box-shadow:inset 0 1px 0 #fff;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:.85em 1.3em;border-radius:99px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:600;
+  color:#fff;background:linear-gradient(135deg,#9575CD,#7E57C2 55%,#AA7DFF);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 10px 30px -8px rgba(126,87,194,.6);transition:transform .25s}
+.btn.ghost{color:var(--deep);background:rgba(255,255,255,.6);box-shadow:inset 0 1px 0 #fff,0 6px 20px -8px rgba(126,87,194,.4)}
+.btn:active{transform:scale(.96)}
+
+/* ---------- Nav ---------- */
+.topnav{position:fixed;top:calc(14px + var(--safe-t));left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:4px;padding:6px;border-radius:99px}
+.topnav a{padding:.55em 1em;border-radius:99px;font-size:.86rem;font-weight:600;text-decoration:none;color:var(--ink2);transition:.25s;white-space:nowrap}
+.topnav a.on,.topnav a:hover{background:rgba(255,255,255,.85);color:var(--deep);box-shadow:inset 0 1px 0 #fff,0 4px 14px -4px rgba(126,87,194,.35)}
+.topnav .logo{font-family:"Dancing Script";font-size:1.15rem;color:var(--deep);padding:.35em .9em}
+.tabbar{display:none}
+@media (max-width:860px){
+  .topnav{display:none}
+  .tabbar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + var(--safe-b));z-index:50;justify-content:space-around;padding:7px;border-radius:30px}
+  .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 0;border-radius:22px;text-decoration:none;font-size:.64rem;font-weight:600;color:var(--ink2);transition:.25s}
+  .tabbar a svg{width:22px;height:22px}
+  .tabbar a.on{background:rgba(255,255,255,.85);color:var(--deep);box-shadow:inset 0 1px 0 #fff,0 4px 14px -4px rgba(126,87,194,.4)}
+}
+.progress{position:fixed;top:0;left:0;height:3px;z-index:60;background:linear-gradient(90deg,#C7A5FF,#7E57C2,#F1A7CF);width:0;border-radius:0 3px 3px 0}
+
+/* ---------- Layout ---------- */
+section{position:relative}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--classic)}
+.h2{font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.02em;color:var(--ink)}
+.h2 em{font-style:italic;background:linear-gradient(120deg,#7E57C2,#AA7DFF 50%,#E58FC0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(1rem,1.6vw,1.18rem);color:var(--ink2);max-width:60ch}
+.pad{padding:clamp(80px,12vw,150px) 0}
+.split .ch{display:inline-block;will-change:transform}
+
+/* ---------- Hero ---------- */
+.hero{height:100svh;min-height:620px;display:grid;place-items:center;overflow:hidden}
+.hero-frame{position:absolute;inset:0;overflow:hidden;will-change:transform,border-radius}
+.hero-frame video,.hero-frame img{width:100%;height:100%;object-fit:cover}
+.hero-frame::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(43,31,71,.35) 0%,rgba(126,87,194,.25) 45%,rgba(243,232,255,.92) 100%),
+  radial-gradient(80% 60% at 50% 40%,transparent,rgba(91,58,154,.35))}
+.hero-inner{position:relative;z-index:2;text-align:center;padding:0 5vw;color:#fff}
+.hero h1{font-family:"Playfair Display";font-weight:500;font-size:clamp(3.6rem,15vw,12rem);line-height:.9;letter-spacing:-.03em;text-shadow:0 10px 50px rgba(60,20,120,.45)}
+.hero h1 .amp{font-family:"Dancing Script";color:#F3E8FF;font-size:.6em;vertical-align:.15em;padding:0 .08em}
+.hero .sub{margin-top:18px;font-size:clamp(.95rem,2vw,1.25rem);letter-spacing:.3em;text-transform:uppercase;font-weight:600;text-shadow:0 2px 20px rgba(60,20,120,.5)}
+.countdown{margin:30px auto 0;display:inline-flex;gap:10px;padding:10px;border-radius:26px}
+.countdown div{min-width:68px;padding:10px 6px;border-radius:18px;background:rgba(255,255,255,.5);color:var(--deep)}
+.countdown b{display:block;font-size:1.7rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.countdown span{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink2)}
+.scrollhint{position:absolute;bottom:calc(28px + var(--safe-b));left:50%;transform:translateX(-50%);z-index:2;color:var(--deep);font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollhint i{width:22px;height:36px;border:2px solid var(--deep);border-radius:12px;position:relative}
+.scrollhint i::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--deep);animation:wheel 1.6s infinite}
+@keyframes wheel{70%{transform:translateY(10px);opacity:0}}
+@media (max-width:860px){.scrollhint{bottom:calc(100px + var(--safe-b))}}
+
+/* ---------- Marquee ---------- */
+.marquee{overflow:hidden;padding:26px 0;border-block:1px solid rgba(126,87,194,.15);background:rgba(255,255,255,.35)}
+.marquee .track{display:flex;gap:48px;width:max-content;animation:mq 38s linear infinite;font-family:"Playfair Display";font-style:italic;font-size:clamp(1.6rem,4vw,3rem);color:var(--classic)}
+.marquee .track span{display:flex;align-items:center;gap:48px;white-space:nowrap}
+.marquee .track span::after{content:"✦";font-style:normal;font-size:.6em;color:var(--lav3)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- Us ---------- */
+.us-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
+@media (max-width:860px){.us-grid{grid-template-columns:1fr}}
+.stack{position:relative;height:clamp(420px,52vw,600px)}
+.polaroid{position:absolute;width:56%;padding:10px 10px 46px;background:#fff;border-radius:6px;box-shadow:0 30px 60px -25px rgba(60,30,120,.5);transform-origin:50% 90%}
+.polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px}
+.polaroid .cap{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-family:"Dancing Script";font-size:1.25rem;color:var(--deep)}
+.p1{left:2%;top:6%;rotate:-9deg}.p2{left:38%;top:0;rotate:7deg}.p3{left:12%;top:30%;rotate:4deg}.p4{left:44%;top:34%;rotate:-6deg}
+.avatars{display:flex;gap:14px;margin:26px 0}
+.avatar{flex:1;padding:16px;border-radius:24px;text-align:center}
+.avatar svg{width:96px;height:96px;margin:0 auto 6px}
+.avatar b{font-family:"Dancing Script";font-size:1.6rem;color:var(--deep);display:block;line-height:1}
+.avatar small{color:var(--ink2);font-size:.8rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.stat{padding:16px 10px;border-radius:20px;text-align:center}
+.stat b{display:block;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:var(--deep);line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:.72rem;color:var(--ink2);font-weight:600}
+@media (max-width:520px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- Route ---------- */
+.route-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+@media (max-width:860px){.route-wrap{grid-template-columns:1fr}}
+.route-card{padding:20px;border-radius:32px}
+.route-svg{width:100%;height:auto}
+.legs{display:grid;gap:12px}
+.leg{display:flex;gap:14px;align-items:center;padding:14px 16px;border-radius:22px}
+.leg .ic{width:46px;height:46px;flex:none;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,#E6D2FF,#C7A5FF);font-size:1.3rem;box-shadow:inset 0 1px 0 #fff}
+.leg b{display:block;font-size:.98rem}.leg small{color:var(--ink2);font-size:.82rem}
+
+/* ---------- Mountains parallax ---------- */
+.nb-intro{height:115vh;overflow:hidden;display:grid;place-items:center}
+.nb-intro .layer{position:absolute;left:-5%;width:110%;bottom:0}
+.nb-intro .title{position:relative;z-index:3;text-align:center;margin-top:-18vh}
+.nb-intro .title .big{font-family:"Playfair Display";font-style:italic;font-size:clamp(4rem,16vw,13rem);line-height:.9;color:#fff;text-shadow:0 10px 60px rgba(91,58,154,.55)}
+.nb-intro .title p{color:#fff;letter-spacing:.3em;text-transform:uppercase;font-weight:700;font-size:.85rem;text-shadow:0 2px 20px rgba(60,20,120,.6)}
+.nb-sky{position:absolute;inset:0;background:linear-gradient(180deg,#B9A3F0 0%,#D7BBFF 35%,#F1D6E4 70%,#FCE7F0 100%)}
+.sun{position:absolute;left:50%;top:22%;width:28vmin;height:28vmin;margin-left:-14vmin;border-radius:50%;background:radial-gradient(circle,#FFF6FB,#FBD3E9 60%,rgba(251,211,233,0) 70%)}
+.bird{position:absolute;z-index:2;color:#6f53a8;opacity:.6}
+
+/* ---------- Itinerary ---------- */
+.seg{display:flex;gap:4px;padding:6px;border-radius:24px;overflow-x:auto;scrollbar-width:none;margin:30px 0 26px}
+.seg::-webkit-scrollbar{display:none}
+.seg button{flex:1;min-width:104px;border:0;background:transparent;font:inherit;padding:10px 12px;border-radius:18px;cursor:pointer;color:var(--ink2);text-align:center;transition:.3s}
+.seg button b{display:block;font-size:1.05rem;color:var(--ink)}
+.seg button small{font-size:.72rem;font-weight:600}
+.seg button.on{background:rgba(255,255,255,.9);box-shadow:inset 0 1px 0 #fff,0 8px 20px -8px rgba(126,87,194,.45)}
+.seg button.on b{color:var(--deep)}
+.day{display:none}.day.on{display:block}
+.day-head{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-end;margin-bottom:20px}
+.day-head h3{font-family:"Playfair Display";font-size:clamp(1.7rem,4vw,2.7rem);line-height:1.05}
+.day-head h3 em{color:var(--deep)}
+.tl{position:relative;padding-left:30px}
+.tl::before{content:"";position:absolute;left:10px;top:8px;bottom:8px;width:2px;border-radius:2px;background:linear-gradient(#C7A5FF,#F1A7CF)}
+.stop{position:relative;margin-bottom:14px;padding:16px 18px;border-radius:22px}
+.stop::before{content:"";position:absolute;left:-26px;top:22px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--lav4);box-shadow:0 0 0 5px rgba(199,165,255,.25)}
+.stop.key::before{background:var(--deep);border-color:#fff}
+.stop .t{font-weight:800;color:var(--deep);font-variant-numeric:tabular-nums;margin-right:8px}
+.stop h4{display:inline;font-size:1.02rem}
+.stop p{color:var(--ink2);font-size:.9rem;margin-top:4px}
+.stop .links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.stop .links a{font-size:.75rem;font-weight:600;color:var(--deep);text-decoration:none;padding:.3em .75em;border-radius:99px;background:rgba(199,165,255,.22)}
+.note{margin-top:16px;padding:14px 18px;border-radius:20px;font-size:.88rem;color:var(--ink2);background:rgba(241,214,228,.55);border:1px solid rgba(255,255,255,.8)}
+
+/* ---------- Places horizontal ---------- */
+.places{overflow:hidden}
+.places-head{margin-bottom:34px}
+.hscroll{display:flex;gap:24px;padding:0 4vw 0;width:max-content}
+.place{width:min(520px,84vw);flex:none;border-radius:34px;padding:14px}
+.place .art{border-radius:24px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.place .art svg{width:100%;height:100%}
+.place .num{position:absolute;top:12px;left:14px;font-family:"Playfair Display";font-style:italic;font-size:1.1rem;color:#fff;background:rgba(43,31,71,.25);backdrop-filter:blur(8px);padding:.15em .7em;border-radius:99px}
+.place .body{padding:18px 8px 6px}
+.place h3{font-family:"Playfair Display";font-size:2rem;line-height:1}
+.place .kicker{font-size:.8rem;font-weight:700;color:var(--classic);letter-spacing:.06em;margin:6px 0 10px}
+.place p{font-size:.92rem;color:var(--ink2)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 10px}
+.facts div{padding:10px;border-radius:16px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.9)}
+.facts small{display:block;font-size:.66rem;font-weight:700;color:var(--classic);text-transform:uppercase;letter-spacing:.08em}
+.facts b{font-size:.86rem}
+.tip{font-size:.85rem;padding:10px 12px;border-radius:14px;background:linear-gradient(135deg,rgba(230,210,255,.6),rgba(241,214,228,.6));margin-top:8px}
+@media (max-width:899px){
+  .places .hscroll{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .places .hscroll::-webkit-scrollbar{display:none}
+  .place{scroll-snap-align:center}
+}
+
+/* ---------- Food ---------- */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:40px}
+.food{grid-column:span 4;padding:22px;border-radius:28px;display:flex;flex-direction:column;gap:6px}
+.food.w{grid-column:span 6}
+.food .em{font-size:2.2rem;line-height:1}
+.food h4{font-size:1.1rem;margin-top:6px}
+.food .where{font-size:.74rem;font-weight:700;color:var(--classic);text-transform:uppercase;letter-spacing:.08em}
+.food p{font-size:.88rem;color:var(--ink2)}
+.food a{font-size:.78rem;font-weight:600;color:var(--deep);margin-top:auto;padding-top:8px}
+@media (max-width:960px){.food,.food.w{grid-column:span 6}}
+@media (max-width:600px){.food,.food.w{grid-column:span 12}}
+.filter{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.filter button{border:0;font:inherit;font-size:.85rem;font-weight:600;padding:.55em 1.1em;border-radius:99px;cursor:pointer;background:rgba(255,255,255,.55);color:var(--ink2);box-shadow:inset 0 1px 0 #fff}
+.filter button.on{background:var(--deep);color:#fff}
+
+/* ---------- Flight guide ---------- */
+.fly{background:linear-gradient(180deg,transparent,rgba(215,187,255,.35) 20%,rgba(215,187,255,.35) 80%,transparent)}
+.passes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:34px 0}
+@media (max-width:960px){.passes{grid-template-columns:1fr}}
+.pass{border-radius:26px;padding:0;display:flex;flex-direction:column}
+.pass .top{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#9575CD,#7E57C2);color:#fff}
+.pass .top b{font-size:.95rem}
+.pass .mid{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pass .code{font-size:2.3rem;font-weight:800;letter-spacing:-.02em;line-height:1}
+.pass .mid small{display:block;color:var(--ink2);font-size:.75rem}
+.pass .plane{flex:1;text-align:center;color:var(--lav4);position:relative}
+.pass .plane::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px dashed var(--lav3)}
+.pass .plane span{position:relative;background:#f7f1ff;padding:0 6px;font-size:1.2rem;border-radius:8px}
+.pass .bot{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 20px 18px}
+.pass .bot small{display:block;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--classic)}
+.pass .bot b{font-size:.85rem}
+.pass .perf{margin:0 14px;border-top:2px dashed rgba(126,87,194,.25)}
+.pass .foot{padding:12px 20px;font-size:.78rem;color:var(--ink2)}
+.planner{display:grid;grid-template-columns:1fr 1.3fr;gap:20px;align-items:start}
+@media (max-width:960px){.planner{grid-template-columns:1fr}}
+.calc{padding:24px;border-radius:30px}
+.calc label{font-size:.8rem;font-weight:700;color:var(--classic);display:block;margin-bottom:6px}
+.calc select,.calc input{width:100%;font:inherit;padding:.75em 1em;border-radius:16px;border:1px solid rgba(255,255,255,.9);background:rgba(255,255,255,.7);color:var(--ink);margin-bottom:14px}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.out{display:grid;gap:8px}
+.out div{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:16px;background:rgba(255,255,255,.6)}
+.out div.hl{background:linear-gradient(135deg,#7E57C2,#AA7DFF);color:#fff}
+.out b{font-variant-numeric:tabular-nums;font-size:1.1rem}
+.steps{display:grid;gap:10px}
+.step{border-radius:22px;overflow:hidden}
+.step summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 18px}
+.step summary::-webkit-details-marker{display:none}
+.step .n{width:36px;height:36px;flex:none;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(135deg,#B99AE1,#7E57C2)}
+.step summary b{flex:1;font-size:.98rem}
+.step summary .chev{transition:.3s;color:var(--deep)}
+.step[open] summary .chev{transform:rotate(180deg)}
+.step .c{padding:0 18px 18px 68px;font-size:.9rem;color:var(--ink2)}
+.step .c ul{padding-left:1.1em;display:grid;gap:4px}
+.step .c strong{color:var(--ink)}
+.check{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin-top:20px}
+.check label{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:18px;cursor:pointer;font-size:.9rem;font-weight:500}
+.check input{appearance:none;width:22px;height:22px;flex:none;border-radius:8px;border:2px solid var(--lav3);background:#fff;display:grid;place-items:center;transition:.2s}
+.check input:checked{background:var(--deep);border-color:var(--deep)}
+.check input:checked::after{content:"✓";color:#fff;font-size:.8rem;font-weight:800}
+.check label:has(input:checked) span{text-decoration:line-through;opacity:.55}
+.pbar{height:10px;border-radius:9px;background:rgba(255,255,255,.6);overflow:hidden;margin-top:12px}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#C7A5FF,#7E57C2);border-radius:9px;transition:width .5s}
+
+/* ---------- Memories ---------- */
+.mem-grid{columns:3 240px;column-gap:16px;margin-top:40px}
+.mem{break-inside:avoid;margin-bottom:16px;border-radius:24px;overflow:hidden;padding:8px}
+.mem img{border-radius:18px;width:100%}
+.mem .cap{padding:10px 8px 4px;font-family:"Dancing Script";font-size:1.3rem;color:var(--deep)}
+.slot{break-inside:avoid;margin-bottom:16px;border-radius:24px;border:2px dashed rgba(126,87,194,.35);padding:30px 20px;text-align:center;color:var(--classic);background:rgba(255,255,255,.35);min-height:170px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px}
+.slot b{font-family:"Playfair Display";font-style:italic;font-size:1.25rem;color:var(--deep)}
+.slot small{font-size:.8rem}
+.slot.filled{padding:8px;border-style:solid;border-color:rgba(255,255,255,.8)}
+.slot.filled img{border-radius:16px;width:100%}
+.upload{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+/* ---------- Book ---------- */
+.book{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:30px}
+.addr{padding:16px 18px;border-radius:22px}
+.addr small{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--classic)}
+.addr b{display:block;margin:2px 0 4px}
+.addr p{font-size:.84rem;color:var(--ink2)}
+.addr a{font-size:.78rem;font-weight:600;color:var(--deep);text-decoration:none;display:inline-block;margin-top:8px}
+footer{padding:120px 0 calc(140px + var(--safe-b));text-align:center}
+footer .love{font-family:"Dancing Script";font-size:clamp(2.4rem,7vw,4.5rem);color:var(--deep);line-height:1.1}
+.sources{margin-top:40px;font-size:.75rem;color:var(--ink2);max-width:760px;margin-inline:auto;text-align:left}
+.sources a{color:var(--classic)}
+.cursor{position:fixed;left:0;top:0;width:380px;height:380px;margin:-190px 0 0 -190px;border-radius:50%;pointer-events:none;z-index:-1;background:radial-gradient(circle,rgba(199,165,255,.45),transparent 60%);transition:opacity .4s}
+@media (hover:none){.cursor{display:none}}
+.heart{position:fixed;pointer-events:none;z-index:70;font-size:20px;animation:heart 1.2s ease-out forwards}
+@keyframes heart{to{transform:translateY(-120px) scale(1.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div></div>
+<div class="grain"></div>
+<div class="cursor" id="cursor"></div>
+<div class="progress" id="progress"></div>
+
+<nav class="topnav glass" id="topnav">
+  <a class="logo" href="#home">K ♡ T</a>
+  <a href="#us">Hai đứa</a><a href="#plan">Lịch trình</a><a href="#places">Địa điểm</a><a href="#food">Ăn gì</a><a href="#fly">Đi máy bay</a><a href="#memories">Kỷ niệm</a>
+</nav>
+<nav class="tabbar glass" id="tabbar">
+  <a href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-4.4-9.3-9A5.3 5.3 0 0 1 12 6a5.3 5.3 0 0 1 9.3 6c-2.3 4.6-9.3 9-9.3 9z"/></svg>Home</a>
+  <a href="#plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>Lịch trình</a>
+  <a href="#places"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 20l6-12 4 7 3-4 5 9z"/></svg>Địa điểm</a>
+  <a href="#fly"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14l-6 2 1 2 6-1 4 5 2-1-2-7 5-5a2 2 0 0 0-3-3l-5 5-7-2-1 2 5 4z"/></svg>Bay</a>
+  <a href="#memories"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="12" cy="12" r="3.5"/></svg>Kỷ niệm</a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="hero-frame" id="heroFrame">
+    <video autoplay muted loop playsinline poster="assets/poster.jpg" src="assets/clip.mp4"></video>
+  </div>
+  <div class="hero-inner" id="heroInner">
+    <div class="chip" style="margin-bottom:18px">✦ Chuyến đi đầu tiên ra Bắc của hai đứa</div>
+    <h1 class="split" id="heroTitle">Khôi<span class="amp">&amp;</span>Thư</h1>
+    <div class="sub">Hà Nội · Ninh Bình — 18 → 22.11.2026</div>
+    <div class="countdown glass" id="countdown">
+      <div><b id="cd-d">00</b><span>ngày</span></div><div><b id="cd-h">00</b><span>giờ</span></div><div><b id="cd-m">00</b><span>phút</span></div><div><b id="cd-s">00</b><span>giây</span></div>
+    </div>
+    <div style="margin-top:10px;font-size:.82rem;font-weight:600;text-shadow:0 2px 12px rgba(60,20,120,.6)" id="cd-label">đến lúc VN254 cất cánh</div>
+  </div>
+  <div class="scrollhint"><i></i>cuộn xuống</div>
+</section>
+
+<div class="marquee"><div class="track" id="mq"><span>Tràng An</span><span>Tam Cốc</span><span>Hang Múa</span><span>Thung Ui</span><span>Phố cổ Hoa Lư</span><span>Hồ Tây</span><span>Hồ Gươm</span><span>Tràng An</span><span>Tam Cốc</span><span>Hang Múa</span><span>Thung Ui</span><span>Phố cổ Hoa Lư</span><span>Hồ Tây</span><span>Hồ Gươm</span></div></div>
+
+<!-- ================= US ================= -->
+<section class="pad" id="us">
+  <div class="wrap us-grid">
+    <div class="stack" id="stack">
+      <figure class="polaroid p1"><img src="assets/moto.jpg" alt="Khôi và Thư trên xe máy" loading="lazy"><figcaption class="cap">Sài Gòn by night</figcaption></figure>
+      <figure class="polaroid p2"><img src="assets/beach.jpg" alt="Khôi và Thư ở biển" loading="lazy"><figcaption class="cap">biển & gió</figcaption></figure>
+      <figure class="polaroid p3"><img src="assets/cafe.jpg" alt="Khôi và Thư ở quán cà phê" loading="lazy"><figcaption class="cap">cà phê chiều</figcaption></figure>
+      <figure class="polaroid p4"><img src="assets/mirror.jpg" alt="Hai đứa trước gương quán cà phê" loading="lazy"><figcaption class="cap">a good day ♡</figcaption></figure>
+    </div>
+    <div>
+      <div class="eyebrow reveal">Chapter 01 · Hai đứa mình</div>
+      <h2 class="h2 reveal" style="margin:12px 0 16px">Lần đầu ra Bắc,<br><em>lần đầu cùng nhau.</em></h2>
+      <p class="lead reveal">Năm ngày, hai thành phố, một thung lũng núi đá vôi và rất nhiều tấm ảnh chưa chụp. Đây là cuốn nhật ký số cho chuyến đi — bây giờ là lịch trình, sau chuyến đi sẽ là album kỷ niệm.</p>
+      <div class="avatars reveal">
+        <div class="avatar glass">
+          <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#E6D2FF"/><path d="M22 120c4-26 18-36 38-36s34 10 38 36z" fill="#9C8E5E"/><circle cx="60" cy="56" r="28" fill="#F6D6C4"/><path d="M31 52c0-20 12-30 29-30s30 9 30 28c-6-6-16-9-30-9-12 0-22 4-29 11z" fill="#2B2238"/><rect x="38" y="51" width="18" height="13" rx="4" fill="none" stroke="#2B2238" stroke-width="3.5"/><rect x="64" y="51" width="18" height="13" rx="4" fill="none" stroke="#2B2238" stroke-width="3.5"/><path d="M56 56h8" stroke="#2B2238" stroke-width="3"/><path d="M52 72q8 6 16 0" stroke="#B26A5E" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="40" cy="69" r="4" fill="#F7B5C8" opacity=".7"/><circle cx="80" cy="69" r="4" fill="#F7B5C8" opacity=".7"/></svg>
+          <b>Khôi</b><small>bay 17:00 · trưởng đoàn ✈️</small>
+        </div>
+        <div class="avatar glass">
+          <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#F1D6E4"/><path d="M26 64c-4 30 2 50 10 56h48c8-6 14-26 10-56z" fill="#2B2238"/><path d="M24 120c4-24 18-34 36-34s32 10 36 34z" fill="#fff"/><circle cx="60" cy="58" r="27" fill="#F8DACB"/><path d="M33 58c-2-22 10-34 27-34s30 12 27 34c-4-12-12-20-27-21-14 1-23 9-27 21z" fill="#2B2238"/><path d="M46 58q4-4 8 0M66 58q4-4 8 0" stroke="#2B2238" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="60" cy="72" rx="5" ry="4" fill="#E77E95"/><circle cx="42" cy="68" r="4.5" fill="#F7A8C2" opacity=".8"/><circle cx="78" cy="68" r="4.5" fill="#F7A8C2" opacity=".8"/><path d="M84 30l3 6 6 1-5 4 2 6-6-3-5 3 1-6-4-4 6-1z" fill="#C7A5FF"/></svg>
+          <b>Thư</b><small>bay 23:00 · team tím pastel 💜</small>
+        </div>
+      </div>
+      <div class="stats reveal">
+        <div class="stat glass"><b data-count="5">0</b><span>ngày</span></div>
+        <div class="stat glass"><b data-count="2300">0</b><span>km bay</span></div>
+        <div class="stat glass"><b data-count="5">0</b><span>điểm Ninh Bình</span></div>
+        <div class="stat glass"><b data-count="1">0</b><span>đám cưới</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROUTE ================= -->
+<section class="pad" id="route" style="padding-top:0">
+  <div class="wrap route-wrap">
+    <div>
+      <div class="eyebrow reveal">Chapter 02 · Hành trình</div>
+      <h2 class="h2 reveal" style="margin:12px 0 22px">Sài Gòn → <em>Hà Nội</em><br>→ Ninh Bình</h2>
+      <div class="legs">
+        <div class="leg glass reveal"><div class="ic">✈️</div><div><b>18/11 · SGN T3 → HAN T1</b><small>VN254 · 17:00 → 19:10 · Boeing 787</small></div></div>
+        <div class="leg glass reveal"><div class="ic">🚐</div><div><b>19/11 · Hà Nội → Ninh Bình</b><small>Xe 09:00 VP Đồng Tàu → 10:30 VP Bích Đào</small></div></div>
+        <div class="leg glass reveal"><div class="ic">🛶</div><div><b>19–21/11 · Tam Cốc base</b><small>Tam Coc Catalina Hotel · 2 đêm</small></div></div>
+        <div class="leg glass reveal"><div class="ic">💍</div><div><b>21/11 · về Hà Nội · cưới Ruby</b><small>Xe 13:00 · Maison Nhã Tây Hồ · VinPalace Cổ Loa</small></div></div>
+        <div class="leg glass reveal"><div class="ic">🏠</div><div><b>22/11 · HAN T1 → SGN T3</b><small>VN231 · 18:30 → 20:45</small></div></div>
+      </div>
+    </div>
+    <div class="route-card glass reveal">
+      <svg class="route-svg" viewBox="0 0 420 560" id="routeSvg">
+        <defs>
+          <linearGradient id="rg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#C7A5FF"/><stop offset=".6" stop-color="#7E57C2"/><stop offset="1" stop-color="#E58FC0"/></linearGradient>
+          <radialGradient id="dot"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#C7A5FF"/></radialGradient>
+        </defs>
+        <!-- stylised coast (minh hoạ) -->
+        <path d="M170 40c40 10 70 30 60 70-8 30-50 40-46 80 4 40 60 60 80 110 18 46 10 90-20 130-24 32-60 50-96 70" fill="none" stroke="rgba(126,87,194,.18)" stroke-width="34" stroke-linecap="round"/>
+        <path d="M170 40c40 10 70 30 60 70-8 30-50 40-46 80 4 40 60 60 80 110 18 46 10 90-20 130-24 32-60 50-96 70" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+        <path id="flightPath" d="M150 505 C 330 430, 360 250, 250 160 S 150 70, 196 74" fill="none" stroke="url(#rg)" stroke-width="4" stroke-linecap="round"/>
+        <path id="busPath" d="M196 74 C 210 100, 200 120, 214 142" fill="none" stroke="#E58FC0" stroke-width="4" stroke-dasharray="6 7" stroke-linecap="round"/>
+        <g font-family="Be Vietnam Pro" font-weight="700" font-size="15" fill="#2B1F47">
+          <circle cx="150" cy="505" r="9" fill="url(#dot)" stroke="#7E57C2" stroke-width="3"/><text x="40" y="510">Sài Gòn</text><text x="40" y="528" font-size="11" font-weight="600" fill="#9575CD">SGN · T3</text>
+          <circle cx="196" cy="74" r="9" fill="url(#dot)" stroke="#7E57C2" stroke-width="3"/><text x="215" y="70">Hà Nội</text><text x="215" y="88" font-size="11" font-weight="600" fill="#9575CD">HAN · T1</text>
+          <circle cx="214" cy="142" r="8" fill="#fff" stroke="#E58FC0" stroke-width="3"/><text x="232" y="148">Ninh Bình</text><text x="232" y="164" font-size="11" font-weight="600" fill="#9575CD">~95 km · 1h30</text>
+        </g>
+        <g id="plane"><circle r="16" fill="#fff" stroke="#C7A5FF" stroke-width="2"/><path d="M-8 2l6-1 3-8h3l-1 8 6 1 2-3h2l-1 4 1 4h-2l-2-3-6 1 1 8h-3l-3-8-6-1z" fill="#7E57C2" transform="rotate(-90)"/></g>
+        <text x="18" y="548" font-size="10" fill="#9575CD" font-family="Be Vietnam Pro">* bản đồ minh hoạ, không theo tỉ lệ</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NINH BINH PARALLAX ================= -->
+<section class="nb-intro" id="nbIntro">
+  <div class="nb-sky"></div><div class="sun" id="sun"></div>
+  <svg class="bird" style="left:22%;top:20%" width="40" viewBox="0 0 40 14"><path d="M0 8q10-8 20 0q10-8 20 0" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+  <svg class="bird" style="left:64%;top:16%" width="28" viewBox="0 0 40 14"><path d="M0 8q10-8 20 0q10-8 20 0" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+  <svg class="layer" data-speed="0.15" viewBox="0 0 1440 520" preserveAspectRatio="none" style="height:78%"><path d="M0 520V260c60-40 90-160 150-170 50-8 60 120 110 130 40 8 60-150 120-160 60-10 70 140 120 150 50 10 70-120 130-130 70-12 80 170 140 170 50 0 70-200 140-210 60-8 70 150 130 160 50 8 70-90 130-100 60-10 80 120 140 120 40 0 70-60 130-70V520z" fill="#C9B3F2"/></svg>
+  <svg class="layer" data-speed="0.3" viewBox="0 0 1440 520" preserveAspectRatio="none" style="height:62%"><path d="M0 520V300c50-10 70-140 130-150s70 160 130 160 60-190 130-200 80 180 140 190 60-110 120-120 80 150 150 150 70-210 140-220 80 200 150 210 60-90 120-100 70 110 130 110 50-30 100-40V520z" fill="#A98BE0"/></svg>
+  <svg class="layer" data-speed="0.5" viewBox="0 0 1440 520" preserveAspectRatio="none" style="height:44%"><path d="M0 520V330c70 0 80-150 160-160s80 170 160 170 90-140 170-150 70 140 150 150 80-170 170-180 80 160 160 170 90-120 170-130 80 140 160 140 60-20 100-30V520z" fill="#8A68CC"/><path d="M0 520V470c200-30 400 20 720 0s520-30 720 0V520z" fill="#E8D8FF" opacity=".8"/></svg>
+  <svg class="layer" data-speed="0.7" viewBox="0 0 1440 300" preserveAspectRatio="none" style="height:20%"><path d="M0 300V120c120-30 240 40 380 20s260-60 420-40 300 50 420 30 160-20 220-10V300z" fill="#F3E8FF"/><g fill="#7E57C2"><path d="M560 120q30 8 60 0l-6 10h-48z"/><circle cx="590" cy="108" r="5"/><path d="M584 104l6-8 6 8z" fill="#C7A5FF"/></g></svg>
+  <div class="title"><p>Chapter 03</p><div class="big split" id="nbTitle">Ninh Bình</div><p>Hạ Long trên cạn · 19 → 21.11</p></div>
+</section>
+
+<!-- ================= ITINERARY ================= -->
+<section class="pad" id="plan">
+  <div class="wrap">
+    <div class="eyebrow reveal">Chapter 04 · Lịch trình từng giờ</div>
+    <h2 class="h2 reveal" style="margin-top:12px">5 ngày, <em>từng phút một.</em></h2>
+    <p class="lead reveal" style="margin-top:12px">Giờ giấc đã tính theo vé máy bay, vé xe và giờ check-in/out. Bấm vào nút bản đồ để mở Google Maps chỉ đường.</p>
+    <div class="seg glass" id="seg"></div>
+    <div id="days"></div>
+  </div>
+</section>
+
+<!-- ================= PLACES ================= -->
+<section class="places pad" id="places" style="padding-bottom:60px">
+  <div class="wrap places-head">
+    <div class="eyebrow reveal">Chapter 05 · Những nơi sẽ đến</div>
+    <h2 class="h2 reveal" style="margin-top:12px">Năm khung cảnh <em>Ninh Bình</em><br>+ một chút Hà Nội</h2>
+  </div>
+  <div class="hscroll" id="hscroll"></div>
+</section>
+
+<!-- ================= FOOD ================= -->
+<section class="pad" id="food" style="padding-top:60px">
+  <div class="wrap">
+    <div class="eyebrow reveal">Chapter 06 · Ăn gì, uống gì</div>
+    <h2 class="h2 reveal" style="margin-top:12px">Dê núi, cơm cháy<br>& <em>cà phê trứng.</em></h2>
+    <div class="filter" id="foodFilter"><button class="on" data-f="all">Tất cả</button><button data-f="nb">Ninh Bình</button><button data-f="hn">Hà Nội</button><button data-f="cafe">Cà phê</button></div>
+    <div class="bento" id="bento"></div>
+  </div>
+</section>
+
+<!-- ================= FLY ================= -->
+<section class="pad fly" id="fly">
+  <div class="wrap">
+    <div class="eyebrow reveal">Chapter 07 · Lần đầu tự đi máy bay</div>
+    <h2 class="h2 reveal" style="margin-top:12px">Đừng lo, Khôi ơi —<br><em>làm theo từng bước.</em></h2>
+    <p class="lead reveal" style="margin-top:12px">Vé ghi rõ: có mặt trước giờ bay 90 phút, quầy thủ tục đóng trước 60 phút. Mình để dư cho lần đầu: tới sân bay trước ~2 tiếng.</p>
+
+    <div class="passes">
+      <div class="pass glass reveal">
+        <div class="top"><b>VIETNAM AIRLINES · VN254</b><span class="chip" style="background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.4)">Đi</span></div>
+        <div class="mid"><div><div class="code">SGN</div><small>Tân Sơn Nhất · T3</small></div><div class="plane"><span>✈</span></div><div style="text-align:right"><div class="code">HAN</div><small>Nội Bài · T1</small></div></div>
+        <div class="bot"><div><small>Ngày</small><b>T4 18/11</b></div><div><small>Cất cánh</small><b>17:00</b></div><div><small>Hạ cánh</small><b>19:10</b></div><div><small>Quầy đóng</small><b>16:00</b></div></div>
+        <div class="perf"></div><div class="foot">MR BUI HOANG KHOI · Mã đặt chỗ <b>DXXLAW</b> · Economy Lite · Ký gửi 1 kiện 23kg · Xách tay 1 kiện 10kg</div>
+      </div>
+      <div class="pass glass reveal">
+        <div class="top" style="background:linear-gradient(135deg,#E58FC0,#B99AE1)"><b>CHUYẾN CỦA THƯ</b><span class="chip" style="background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.4)">Đi</span></div>
+        <div class="mid"><div><div class="code">SGN</div><small>Tân Sơn Nhất</small></div><div class="plane"><span>✈</span></div><div style="text-align:right"><div class="code">HAN</div><small>Nội Bài</small></div></div>
+        <div class="bot"><div><small>Ngày</small><b>T4 18/11</b></div><div><small>Cất cánh</small><b>23:00</b></div><div><small>Hạ cánh</small><b>~01:10*</b></div><div><small>Nhà ga</small><b>xem vé</b></div></div>
+        <div class="perf"></div><div class="foot">* Ước tính theo thời gian bay ~2h10. Thư gửi Khôi số hiệu chuyến + nhà ga để Khôi đón đúng cửa.</div>
+      </div>
+      <div class="pass glass reveal">
+        <div class="top"><b>VIETNAM AIRLINES · VN231</b><span class="chip" style="background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.4)">Về</span></div>
+        <div class="mid"><div><div class="code">HAN</div><small>Nội Bài · T1</small></div><div class="plane"><span>✈</span></div><div style="text-align:right"><div class="code">SGN</div><small>Tân Sơn Nhất · T3</small></div></div>
+        <div class="bot"><div><small>Ngày</small><b>CN 22/11</b></div><div><small>Cất cánh</small><b>18:30</b></div><div><small>Hạ cánh</small><b>20:45</b></div><div><small>Quầy đóng</small><b>17:30</b></div></div>
+        <div class="perf"></div><div class="foot">Bay cùng Thư · Ký gửi 23kg · Xách tay 10kg · Nhớ chừa ký cho cơm cháy làm quà 😄</div>
+      </div>
+    </div>
+
+    <div class="planner">
+      <div class="calc glass reveal">
+        <div class="eyebrow" style="margin-bottom:12px">Máy tính giờ rời nhà</div>
+        <label for="fFlight">Chuyến bay</label>
+        <select id="fFlight"><option value="17:00|45|Nhà (267B Phan Văn Khoẻ) → T3 Tân Sơn Nhất|135">VN254 · 18/11 · 17:00 (từ nhà)</option><option value="18:30|40|Maison Nhã Tây Hồ → T1 Nội Bài|110">VN231 · 22/11 · 18:30 (từ Tây Hồ)</option><option value="23:00|45|Nhà Thư → Tân Sơn Nhất|120">Thư · 18/11 · 23:00</option></select>
+        <div class="row">
+          <div><label for="fBuf">Có mặt trước (phút)</label><input id="fBuf" type="number" value="135" min="60" step="15"></div>
+          <div><label for="fRide">Đi xe (phút)</label><input id="fRide" type="number" value="45" min="10" step="5"></div>
+        </div>
+        <div class="out" id="calcOut"></div>
+        <p style="font-size:.78rem;color:var(--ink2);margin-top:10px" id="calcRoute"></p>
+      </div>
+      <div class="steps" id="steps">
+        <details class="step glass reveal" open><summary><span class="n">1</span><b>Tối 17/11 · Chuẩn bị giấy tờ & hành lý</b><span class="chev">▾</span></summary><div class="c"><ul>
+          <li><strong>CCCD gắn chip bản gốc</strong> (hoặc VNeID mức 2) — bắt buộc. Vẫn mang CCCD kể cả khi dùng VNeID.</li>
+          <li>Vali ký gửi ≤ <strong>23kg</strong>. Balo/vali xách tay ≤ <strong>10kg</strong>, kích thước tối đa 56×36×23cm (vali 20 inch thường vừa).</li>
+          <li><strong>Sạc dự phòng: tối đa 2 cục, chỉ để trong xách tay</strong>, ≤100Wh, không dùng/không sạc trên máy bay, để chỗ dễ thấy (quy định mới từ 01/7/2026).</li>
+          <li>Dao, kéo lưỡi dài, bật lửa… để ở vali ký gửi hoặc bỏ lại. Bay nội địa VNA không giới hạn dung tích chất lỏng xách tay (trừ đồ có cồn).</li>
+          <li>Cài app <strong>Vietnam Airlines</strong>, <strong>Grab</strong> và <strong>Xanh SM</strong>; liên kết thẻ/ví trước.</li></ul></div></details>
+        <details class="step glass reveal"><summary><span class="n">2</span><b>Sáng 18/11 · Check-in online</b><span class="chev">▾</span></summary><div class="c"><ul>
+          <li>Mở app Vietnam Airlines → “Làm thủ tục” → nhập mã <strong>DXXLAW</strong> + họ tên → chọn ghế (cửa sổ để ngắm mây ☁️).</li>
+          <li>Lưu <strong>thẻ lên máy bay (boarding pass)</strong> vào điện thoại / chụp màn hình. Có vali ký gửi vẫn phải ra quầy/máy gửi đồ.</li></ul></div></details>
+        <details class="step glass reveal"><summary><span class="n">3</span><b>13:45 · Đặt Grab · 14:00 rời nhà</b><span class="chev">▾</span></summary><div class="c"><ul>
+          <li>Điểm đến gõ: <strong>“Nhà ga T3 – Sân bay Tân Sơn Nhất”</strong> (không chọn T1/T2). T3 nằm cạnh T1, lối vào từ phía đường Trần Quốc Hoàn – Cộng Hòa.</li>
+          <li>Từ Bình Tây (Q6 cũ) ~12km, ngoài giờ cao điểm ~35–50 phút. Mưa thì đặt sớm hơn 15 phút.</li>
+          <li>Xuống ở <strong>sảnh Đi (Departures)</strong>.</li></ul></div></details>
+        <details class="step glass reveal"><summary><span class="n">4</span><b>~14:45 · Tìm quầy & ký gửi hành lý</b><span class="chev">▾</span></summary><div class="c"><ul>
+          <li>Nhìn bảng điện tử lớn → tìm <strong>VN254 · HÀ NỘI</strong> → xem số quầy. Vietnam Airlines làm thủ tục tại <strong>quầy 56–109</strong>, có kiosk tự check-in và máy tự gửi hành lý.</li>
+          <li>Đưa CCCD + boarding pass, đặt vali lên băng chuyền cân. Nhân viên dán thẻ hành lý → <strong>giữ cuống thẻ</strong> (dán sau CCCD/boarding pass).</li>
+          <li>Không rành? Hỏi nhân viên áo VNA đứng quanh khu quầy: “Em bay VN254 đi Hà Nội, gửi hành lý ở đâu ạ?”</li></ul></div></details>
+        <details class="step glass reveal"><summary><span class="n">5</span><b>Soi chiếu an ninh</b><span class="chev">▾</span></summary><div class="c"><ul>
+          <li>Xếp hàng, đưa boarding pass + CCCD (hoặc quét khuôn mặt nếu dùng VNeID).</li>
+          <li>Lấy ra khay: <strong>laptop, sạc dự phòng, điện thoại, ví, chìa khoá, thắt lưng, áo khoác</strong>. Balo đặt vào khay riêng.</li>
+          <li>Đi qua cổng từ. Nhận lại đồ, kiểm tra đủ CCCD + điện thoại rồi mới đi.</li></ul></div></details>
+        <details class="step glass reveal"><summary><span class="n">6</span><b>Ra cửa (Gate) & chờ lên máy bay</b><span class="chev">▾</span></summary><div class="c"><ul>
+          <li>Số cửa ghi trên boarding pass / bảng điện tử (có thể đổi — nhìn lại bảng khi chờ).</li>
+          <li>Tới cửa trước giờ cất cánh ≥ 45 phút, thường lên máy bay khoảng 30–40 phút trước. Cửa đóng sớm, đừng đi dạo xa.</li>
+          <li>Lên máy bay: tìm số ghế (VD 32A — hàng 32, ghế A cạnh cửa sổ), cất balo lên khoang trên đầu, thắt dây an toàn, điện thoại chế độ máy bay.</li></ul></div></details>
+        <details class="step glass reveal"><summary><span class="n">7</span><b>19:10 · Hạ cánh Nội Bài T1</b><span class="chev">▾</span></summary><div class="c"><ul>
+          <li>Đi theo biển <strong>“Nhận hành lý / Baggage claim”</strong>, xem màn hình số băng chuyền của VN254, đợi vali ra.</li>
+          <li>Ra ngoài, mở Grab: điểm đón GrabCar tại T1 là <strong>Làn 3, phía trước Sảnh E</strong> (luôn tin hướng dẫn trong app). Không đi xe của người chào mời.</li>
+          <li>Đến nhà Long: Số 40 hẻm 79/40/22 Dương Quảng Hàm, Nghĩa Đô (~45–60 phút).</li></ul></div></details>
+        <details class="step glass reveal"><summary><span class="n">8</span><b>22/11 · Chiều về (HAN → SGN)</b><span class="chev">▾</span></summary><div class="c"><ul>
+          <li>16:00 Grab từ Tây Hồ → <strong>Nhà ga T1 Nội Bài</strong> (~35–45 phút, Tây Hồ nằm sẵn trên đường ra sân bay).</li>
+          <li>Quầy VN231 đóng <strong>17:30</strong>. Làm lại bước 4 → 6 cùng Thư.</li>
+          <li>20:45 tới T3 Tân Sơn Nhất → nhận hành lý → Grab về nhà.</li></ul></div></details>
+      </div>
+    </div>
+
+    <h3 class="serif reveal" style="font-size:2rem;margin-top:60px">Checklist hành lý <span class="hand" style="color:var(--deep)">(tick dần nha)</span></h3>
+    <div class="pbar"><i id="pbar"></i></div>
+    <div class="check" id="check"></div>
+  </div>
+</section>
+
+<!-- ================= MEMORIES ================= -->
+<section class="pad" id="memories">
+  <div class="wrap">
+    <div class="eyebrow reveal">Chapter 08 · Album kỷ niệm</div>
+    <h2 class="h2 reveal" style="margin-top:12px">Những khung hình <em>đang chờ được lấp đầy.</em></h2>
+    <p class="lead reveal" style="margin-top:12px">Sau chuyến đi, gửi ảnh cho Claude để fill vĩnh viễn vào từng ô. Muốn xem thử ngay? Chọn ảnh bên dưới — ảnh chỉ hiện trên máy bạn, không được lưu lại.</p>
+    <div class="upload reveal"><label class="btn" for="up">＋ Xem thử ảnh của hai đứa</label><input id="up" type="file" accept="image/*" multiple hidden><span style="font-size:.82rem;color:var(--ink2)">ảnh sẽ lần lượt điền vào các ô trống</span></div>
+    <div class="mem-grid" id="memGrid"></div>
+  </div>
+</section>
+
+<!-- ================= BOOK ================= -->
+<section class="pad" id="book" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow reveal">Sổ địa chỉ</div>
+    <h2 class="h2 reveal" style="margin-top:12px;font-size:clamp(2rem,4.5vw,3.4rem)">Ở đâu, <em>đi đâu.</em></h2>
+    <div class="book" id="book-list"></div>
+    <div class="note reveal" style="margin-top:20px">🌤 Thời tiết miền Bắc tháng 11 thường khô, mát, khoảng 18–25°C; tối và sáng sớm se lạnh, có thể có đợt lạnh xuống ~16°C. Mang áo khoác nhẹ, giày đi bộ êm (Hang Múa ~500 bậc), mũ & kem chống nắng cho buổi đi thuyền.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="love reveal">for Thư, with love — Khôi</div>
+    <p style="color:var(--ink2);margin-top:14px" class="reveal">Chạm hai lần vào bất kỳ đâu để thả tim 💜</p>
+    <div class="sources">
+      <b>Nguồn tham khảo (tra cứu 16/11/2026):</b>
+      <a href="https://www.vietnamairlines.com/be/vi/vietnam-airlines/press-room/press-release/2025/0821-VNA-group-phu-song-toan-dien-T3">VNA – quầy T3</a> ·
+      <a href="https://www.vietnamairlines.com/ca/vi/travel-information/baggage/restricted-baggage/Liquids">VNA – chất lỏng</a> ·
+      <a href="https://mia.vn/quy-dinh-hanh-ly-hang-bay">Quy định sạc dự phòng 2026</a> ·
+      <a href="https://www.grab.com/vn/blog/cap-nhat-diem-don-va-gia-cuoc-grabcar-tai-san-bay-noi-bai/">Grab – điểm đón Nội Bài</a> ·
+      <a href="https://www.vietnamtourism.com/vi/tour-thuyen-trang-an-cam-nang-ay-u-ve-he-thong-uong-thuy-nui">Tràng An 2026</a> ·
+      <a href="https://www.vietnamtourism.com/vi/chi-phi-du-lich-ninh-binh-ngan-sach-thuc-te-theo-tung-ngay-c">Hang Múa & Tam Cốc</a> ·
+      <a href="https://tuoitre.vn/nld/ninh-binhs-hidden-valley-draws-comparisons-to-fenghuang-ancient-town-196260214000941278.htm">Thung Ui</a> ·
+      <a href="https://sunparadiseland.com/SunParadiseLandHaNam/tin-tuc/pho-co-hoa-lu-co-gi-hap-dan-trong-hanh-trinh-du-lich-ninh-binh-38887">Phố cổ Hoa Lư</a> ·
+      <a href="https://www.vietnamtourism.com/vi/viet-nam-trong-thang-11-thoi-tiet-luong-khach-va-nen-i-au">Thời tiết tháng 11</a>.
+      Giá vé có thể thay đổi — kiểm tra lại tại quầy.
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/MotionPathPlugin.min.js"></script>
+<script src="assets/js/lenis.min.js"></script>
+<script>
+const M = q => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+
+/* ================= DATA ================= */
+const DAYS = [
+ {id:'d0', tab:'18/11', dow:'Thứ 4', title:'Sài Gòn <em>→</em> Hà Nội', tags:['✈️ VN254','🌙 ngủ nhà Long'], stops:[
+  ['12:30','Ăn trưa, kiểm tra balo lần cuối','CCCD bản gốc · sạc dự phòng để trong balo xách tay · vali ≤23kg.'],
+  ['13:00','Check-in online trên app Vietnam Airlines','Mã DXXLAW → chọn ghế → lưu boarding pass.'],
+  ['13:45','Đặt Grab → “Nhà ga T3 Tân Sơn Nhất”','Rời 267B Phan Văn Khoẻ lúc 14:00.',[['Bản đồ T3',M('Nhà ga T3 Sân bay Tân Sơn Nhất')]],1],
+  ['14:45','Tới T3 · tìm quầy VNA 56–109','Ký gửi vali, giữ cuống thẻ hành lý. Quầy đóng 16:00.'],
+  ['15:20','Soi chiếu an ninh → ra cửa ra máy bay','Ăn nhẹ ở khu chờ, nhìn bảng điện tử xem cửa có đổi không.'],
+  ['17:00','Cất cánh VN254 · Boeing 787','2 giờ 10 phút trên mây ☁️',null,1],
+  ['19:10','Hạ cánh Nội Bài T1','Nhận hành lý → Grab tại Làn 3 trước Sảnh E.',[['Nội Bài T1',M('Nhà ga T1 Sân bay Nội Bài')]]],
+  ['20:15','Tới nhà Long · ăn tối quanh Nghĩa Đô','Số 40 hẻm 79/40/22 Dương Quảng Hàm, Nghĩa Đô.',[['Nhà Long',M('79/40/22 Dương Quảng Hàm, Nghĩa Đô, Hà Nội')]]],
+  ['00:15','(Tuỳ chọn) Khôi ra Nội Bài đón Thư','Thư bay 23:00 → dự kiến hạ cánh ~01:10. Sau 23h Grab có phụ phí đêm — đặt trước. Hoặc Thư tự Grab về nhà Long.',null,1],
+  ['~02:30','Về nhà Long ngủ','Đặt báo thức 07:00 — sáng mai bắt xe đi Ninh Bình.']
+ ], note:'💡 Khôi bay một mình lần đầu: xem Chapter 07 “Đi máy bay” — có từng bước + máy tính giờ rời nhà.'},
+ {id:'d1', tab:'19/11', dow:'Thứ 5', title:'Hà Nội <em>→</em> Tam Cốc · Hang Múa', tags:['🚐 xe 09:00','🛶 Tam Cốc','🐉 Hang Múa'], stops:[
+  ['07:00','Dậy, ăn sáng nhanh gần nhà Long','Phở / bánh mì / xôi.'],
+  ['08:00','Grab → Văn phòng Hà Nội (KĐT Đồng Tàu)','Ki ốt 12, Tòa N9 KĐT Đồng Tàu, Hoàng Mai · có mặt trước 8:45.',[['VP Hà Nội',M('Tòa N9 Khu đô thị Đồng Tàu, Hoàng Mai, Hà Nội')]]],
+  ['09:00','Xe xuất phát đi Ninh Bình','Ngủ bù trên xe 😴',null,1],
+  ['10:30','Tới Văn phòng Ninh Bình · Số 5 Bích Đào','Gọi Grab / Xanh SM về Tam Cốc (~9km, 15–20 phút).',[['VP Ninh Bình',M('Số 5 Bích Đào, Ninh Bình')]]],
+  ['11:00','Gửi đồ tại Tam Coc Catalina · thuê xe máy','Nhận phòng chính thức từ 14:00. Hỏi lễ tân thuê xe máy/xe đạp.',[['Khách sạn',M('Tam Coc Catalina Hotel, Văn Lâm, Ninh Hải, Hoa Lư, Ninh Bình')]]],
+  ['11:30','Trưa: dê núi + cơm cháy','Quanh Văn Lâm có Chef Hien (1 phút đi bộ), Hoàng Cuisine (4 phút).'],
+  ['13:30','Đi thuyền Tam Cốc · Hang Cả – Hai – Ba','~1,5–2 giờ. Bến thuyền chỉ cách khách sạn vài phút đi bộ.',[['Bến Tam Cốc',M('Bến thuyền Tam Cốc')]],1],
+  ['15:45','Leo Hang Múa · đỉnh Ngoạ Long','~500 bậc đá, lên đỉnh chờ hoàng hôn (~17:15). Vé ~100.000đ.',[['Hang Múa',M('Hang Múa Ninh Bình')]],1],
+  ['18:00','Về khách sạn check-in, tắm',''],
+  ['19:15','Tối chill phố Tây Tam Cốc','Ăn tối nhẹ + cà phê Dam Khe (3 phút đi bộ) · dạo phố đèn vàng.']
+ ]},
+ {id:'d2', tab:'20/11', dow:'Thứ 6', title:'Tràng An · Thung Ui · <em>Hoa Lư đêm</em>', tags:['🏞 UNESCO','⛩ Đàn Kính Thiên','🏮 Phố cổ'], stops:[
+  ['07:30','Ăn sáng ở khách sạn','Buffet sáng 7:30–9:30.'],
+  ['08:15','Bến thuyền Tràng An','Đi sớm tránh đông. Vé 250.000đ/người gồm thuyền. Tuyến 2 (~2,5–3h, có bối cảnh phim Kong) hoặc Tuyến 1 (~3–3,5h, nhiều hang nhất).',[['Tràng An',M('Bến thuyền Tràng An Ninh Bình')]],1],
+  ['11:45','Trưa gần Bái Đính','Gợi ý: Nhà hàng Thăng Long (dê núi, cơm cháy) — tiện đường đi Thung Ui.',[['Thăng Long',M('Nhà hàng Thăng Long dê núi Ninh Bình')]]],
+  ['13:30','Thung Ui · Đàn Kính Thiên','Thung lũng trong vùng lõi Tràng An, cách Bái Đính ~3km. Đi thuyền + chụp ảnh cổ trang.',[['Thung Ui',M('Thung Ui Đàn Kính Thiên Ninh Bình')]],1],
+  ['16:30','Về khách sạn nghỉ, thay đồ đẹp','Outfit tông tím cho Thư 💜'],
+  ['18:30','Phố cổ Hoa Lư về đêm','Bên hồ Kỳ Lân, vào cửa miễn phí. Đèn lồng, tháp Tứ Ân giữa hồ, ngồi thuyền & thả hoa đăng, ăn tối ở khu ẩm thực.',[['Phố cổ Hoa Lư',M('Phố cổ Hoa Lư hồ Kỳ Lân Ninh Bình')]],1],
+  ['21:30','Về Tam Cốc (~8km)','']
+ ]},
+ {id:'d3', tab:'21/11', dow:'Thứ 7', title:'Tạm biệt Ninh Bình · <em>cưới Ruby</em>', tags:['🚐 xe 13:00','💍 VinPalace Cổ Loa','🌃 Hà Nội đêm'], stops:[
+  ['06:15','(Tuỳ chọn) Chạy xe ngắm đồng sáng sớm','Cung đường quanh Tam Cốc – đền Thái Vi lúc sương sớm, chụp ảnh đôi.'],
+  ['08:00','Ăn sáng · cà phê view núi','Cống Rồng Coffee / An Cafe Tam Cốc.'],
+  ['10:00','Mua quà: cơm cháy Ninh Bình','Gói đồ, trả xe máy.'],
+  ['12:00','Check-out · 12:15 Grab ra VP Ninh Bình','Số 5 Bích Đào.',[['VP Ninh Bình',M('Số 5 Bích Đào, Ninh Bình')]]],
+  ['13:00','Xe về Hà Nội (~1,5–2h)','',null,1],
+  ['~15:30','Grab về Maison Nhã · 51A Quảng Khánh, Tây Hồ','Nhận phòng, view Hồ Tây ngay cửa.',[['Maison Nhã',M('51A Quảng Khánh, Tây Hồ, Hà Nội')]]],
+  ['17:15','Khôi đi VinPalace Cổ Loa','~30–40 phút qua cầu Nhật Tân. Thiệp: minhtuan-quynhanh.com',[['VinPalace',M('VinPalace Cổ Loa, Đông Anh, Hà Nội')],['Thiệp cưới','https://minhtuan-quynhanh.com/']],1],
+  ['18:00','Thư: hoàng hôn Hồ Tây','Phủ Tây Hồ (2 phút đi bộ) · cà phê ven hồ · Quán Cá 68 (4 phút) ăn tối.'],
+  ['21:30','Hai đứa gặp lại → Hà Nội về đêm','Tối thứ 7: phố đi bộ Hồ Gươm & phố cổ. Hoặc gần nhà: ốc Bà Già 173 Trích Sài (mở tới khuya).',[['Hồ Gươm',M('Hồ Hoàn Kiếm')],['Ốc Bà Già',M('173 Trích Sài, Tây Hồ')]],1]
+ ]},
+ {id:'d4', tab:'22/11', dow:'Chủ nhật', title:'Một buổi sáng <em>Hà Nội</em> rồi về', tags:['☕ cà phê trứng','✈️ VN231'], stops:[
+  ['07:30','Phở sáng phố cổ','Phở Bát Đàn (49 Bát Đàn) — xếp hàng là đặc sản 😄',[['Phở Bát Đàn',M('Phở Bát Đàn 49 Bát Đàn')]]],
+  ['08:30','Dạo Hồ Gươm · cầu Thê Húc · Tháp Rùa','Sáng CN phố đi bộ còn yên, ảnh đẹp.'],
+  ['09:30','Cà phê trứng','Cà phê Giảng (39 Nguyễn Hữu Huân) hoặc ngắm hồ từ Laika Cafe (tầng 5–6 Hàm Cá Mập).',[['Cà phê Giảng',M('Cà phê Giảng 39 Nguyễn Hữu Huân')]]],
+  ['10:45','Về Tây Hồ · ghé chùa Trấn Quốc','Ngôi chùa cổ trên bán đảo Hồ Tây.',[['Trấn Quốc',M('Chùa Trấn Quốc')]]],
+  ['11:30','Gói đồ · 12:00 check-out','Nhờ chủ nhà giữ hành lý tới 16:00.',null,1],
+  ['12:15','Trưa: phở cuốn Ngũ Xã / bánh tôm Hồ Tây','Khu Trúc Bạch – Thanh Niên, gần chỗ ở.'],
+  ['13:30','Cà phê view Hồ Tây đến chiều','Viết postcard cho nhau, xem lại ảnh chuyến đi.'],
+  ['16:00','Grab → Nội Bài T1','~35–45 phút. Quầy VN231 đóng 17:30.',[['Nội Bài T1',M('Nhà ga T1 Sân bay Nội Bài')]],1],
+  ['18:30','VN231 cất cánh · 20:45 về tới SGN T3','Hết chuyến, nhưng album thì mới bắt đầu 💜',null,1]
+ ]}
+];
+
+const PLACES = [
+ {n:'01',name:'Tràng An',kick:'Di sản UNESCO · thuyền xuyên hang',desc:'Ngồi đò len qua những hang xuyên thuỷ dưới chân núi đá vôi, nước trong thấy đáy. Có tuyến đi qua bối cảnh phim Kong: Skull Island.',f:[['Vé','250.000đ'],['Thời gian','2,5–3,5h'],['Từ KS','~15 phút']],tip:'Đi chuyến sáng sớm, mang áo khoác mỏng vì trong hang mát và có gió.',art:'trangan'},
+ {n:'02',name:'Tam Cốc',kick:'Sông Ngô Đồng · Hang Cả, Hai, Ba',desc:'Con sông uốn lượn giữa đồng lúa và núi đá — “Hạ Long trên cạn”. Bến thuyền ngay sát khách sạn của hai đứa.',f:[['Vé','~150–250k'],['Thời gian','1,5–2h'],['Từ KS','đi bộ']],tip:'Ngồi đầu thuyền để chụp ảnh đôi với dãy núi phía trước.',art:'tamcoc'},
+ {n:'03',name:'Hang Múa',kick:'500 bậc đá · rồng đá trên đỉnh',desc:'Leo lên đỉnh Ngoạ Long, nhìn toàn cảnh thung lũng Tam Cốc với dòng Ngô Đồng uốn quanh cánh đồng. Hoàng hôn ở đây là “cảnh triệu view”.',f:[['Vé','~100.000đ'],['Leo','30–45 phút'],['Từ KS','~5 phút']],tip:'Mang nước, giày đế bám. Lên trước 16:30 để có chỗ đứng đẹp lúc hoàng hôn.',art:'hangmua'},
+ {n:'04',name:'Thung Ui',kick:'Đàn Kính Thiên · thung lũng cổ trang',desc:'Thung lũng ẩn mình trong vùng lõi Tràng An, cách Bái Đính khoảng 3km — được ví như Phượng Hoàng cổ trấn, với đàn tế trời thời Đinh – Lê – Lý.',f:[['Vé','xem tại quầy'],['Thời gian','2–3h'],['Từ KS','~25 phút']],tip:'Hợp chụp ảnh áo dài/cổ phục. Đi thuyền để có góc nhìn đẹp nhất.',art:'thungui'},
+ {n:'05',name:'Phố cổ Hoa Lư',kick:'Hồ Kỳ Lân · đèn lồng về đêm',desc:'Không gian kinh đô Đại Cồ Việt thế kỷ X tái hiện bên hồ Kỳ Lân. Tối lên đèn lồng, tháp Tứ Ân soi bóng giữa hồ, có thuyền và hoa đăng.',f:[['Vé','miễn phí'],['Đẹp nhất','18:00–21:00'],['Từ KS','~20 phút']],tip:'Mang áo khoác: tối tháng 11 ở Ninh Bình khá se lạnh.',art:'hoalu'},
+ {n:'06',name:'Hà Nội',kick:'Hồ Tây · Hồ Gươm · phố cổ',desc:'Ở ngay cạnh Hồ Tây, đêm thứ 7 có phố đi bộ Hồ Gươm. Sáng Chủ nhật: phở, cà phê trứng, cầu Thê Húc đỏ rực.',f:[['Ở','Maison Nhã'],['Đêm','21/11'],['Sáng','22/11']],tip:'Tây Hồ nằm trên đường ra Nội Bài — tiện cho chiều ra sân bay.',art:'hanoi'}
+];
+
+const FOOD = [
+ {c:'nb',em:'🐐',name:'Dê núi Ninh Bình',where:'Đặc sản · Tam Cốc / Bái Đính',d:'Dê tái chanh cuốn bánh đa, dê nướng, dê hấp. Gợi ý Nhà hàng Thăng Long (gần Bái Đính) hoặc các quán quanh Văn Lâm.',q:'Nhà hàng Thăng Long dê núi Ninh Bình',w:1},
+ {c:'nb',em:'🍘',name:'Cơm cháy chà bông',where:'Đặc sản · mua làm quà',d:'Cơm cháy giòn rụm chan sốt mặn ngọt. Mua gói mang về Sài Gòn làm quà.',q:'cơm cháy Ninh Bình'},
+ {c:'nb',em:'👨‍🍳',name:'Chef Hien Restaurant & Coffee',where:'1 phút đi bộ từ khách sạn',d:'Tiện cho bữa trưa ngày đầu trước khi đi thuyền Tam Cốc.',q:'Chef Hien Restaurant Tam Coc'},
+ {c:'nb',em:'🍜',name:'Hoàng Cuisine · The Long',where:'3–4 phút đi bộ',d:'Hai quán quen của khách ở khu Văn Lâm, Tam Cốc — món Việt dễ ăn.',q:'Hoang Cuisine Tam Coc'},
+ {c:'nb',em:'🏮',name:'Khu ẩm thực Phố cổ Hoa Lư',where:'Tối 20/11',d:'Đồ ăn đường phố và đặc sản bày bán dọc phố cổ khi lên đèn.',q:'Phố cổ Hoa Lư'},
+ {c:'cafe',em:'☕',name:'Dam Khe Specialty Coffee',where:'Tam Cốc · 3 phút đi bộ',d:'Cà phê specialty ngay cạnh khách sạn — chill tối 19/11.',q:'Dam Khe specialty coffee Tam Coc'},
+ {c:'cafe',em:'⛰️',name:'Cống Rồng Coffee · An Cafe',where:'Tam Cốc · view núi',d:'Không gian tự nhiên trên tuyến Tam Cốc – đền Thái Vi, hợp buổi sáng 21/11.',q:'Tam Cốc Cống Rồng Coffee',w:1},
+ {c:'hn',em:'🍲',name:'Phở Bát Đàn',where:'Phố cổ · sáng 22/11',d:'Phở bò gia truyền, xếp hàng tự bưng — đúng chất Hà Nội.',q:'Phở Bát Đàn 49 Bát Đàn'},
+ {c:'hn',em:'🐌',name:'Ốc Bà Già',where:'173 Trích Sài · mở tới khuya',d:'Hợp cho bữa khuya sau đám cưới, ngay gần chỗ ở Tây Hồ.',q:'173 Trích Sài Tây Hồ'},
+ {c:'hn',em:'🐟',name:'Quán Cá 68',where:'4 phút đi bộ từ Maison Nhã',d:'Bữa tối gần nhà cho Thư khi Khôi đi cưới.',q:'Quán Cá 68 Quảng Khánh'},
+ {c:'hn',em:'🥢',name:'Phở cuốn Ngũ Xã · bánh tôm Hồ Tây',where:'Trúc Bạch – Thanh Niên',d:'Trưa 22/11 trước khi ra sân bay.',q:'phở cuốn Ngũ Xã Trúc Bạch',w:1},
+ {c:'cafe',em:'🥚',name:'Cà phê trứng Giảng',where:'39 Nguyễn Hữu Huân',d:'Ly cà phê trứng kinh điển của Hà Nội.',q:'Cà phê Giảng 39 Nguyễn Hữu Huân'},
+ {c:'cafe',em:'🌆',name:'Laika Cafe',where:'Tầng 5–6 Hàm Cá Mập',d:'Ngắm toàn cảnh Hồ Gươm từ trên cao.',q:'Laika Cafe Hàm Cá Mập'},
+ {c:'hn',em:'🍮',name:'Tào phớ Võng Thị',where:'Ngõ 6 Võng Thị, Tây Hồ',d:'Món ăn vặt mát lạnh gần Hồ Tây.',q:'Tào phớ ngõ 6 Võng Thị'}
+];
+
+const CHECK = ['CCCD gắn chip (bản gốc)','App Vietnam Airlines + VNeID','App Grab & Xanh SM','Sạc dự phòng (≤2, để xách tay)','Áo khoác nhẹ','Giày đi bộ êm (Hang Múa)','Mũ, kính, kem chống nắng','Đồ dự đám cưới Ruby','Phong bì mừng cưới','Outfit tím chụp ảnh cho Thư 💜','Thuốc cá nhân, khăn giấy ướt','Tiền mặt nhỏ (vé, đò, gửi xe)','Tai nghe, cáp sạc','Túi chống nước cho điện thoại'];
+
+const BOOK = [
+ ['Nhà','267B Phan Văn Khoẻ','Phường Bình Tây, TP.HCM','267B Phan Văn Khoẻ, Bình Tây, Hồ Chí Minh'],
+ ['Đêm 18/11','Nhà Long','Số 40 hẻm 79/40/22 Phố Dương Quảng Hàm, Nghĩa Đô, Hà Nội','79/40/22 Dương Quảng Hàm, Nghĩa Đô, Hà Nội'],
+ ['Xe 19/11 · 09:00','Văn phòng Hà Nội','Ki ốt 12, Tòa N9 Khu đô thị Đồng Tàu · đón miễn phí','Tòa N9 Khu đô thị Đồng Tàu, Hoàng Mai, Hà Nội'],
+ ['Trả 10:30 · đón về 13:00','Văn phòng Ninh Bình','Số 5, đường Bích Đào','Số 5 Bích Đào, Ninh Bình'],
+ ['19 → 21/11','Tam Coc Catalina Hotel','Văn Lâm, Ninh Hải, Hoa Lư · nhận phòng 14:00, trả 12:00','Tam Coc Catalina Hotel, Ninh Bình'],
+ ['21 → 22/11','Maison Nhã','51A Quảng Khánh, Tây Hồ · cạnh Hồ Tây · trả phòng 12:00','51A Quảng Khánh, Tây Hồ, Hà Nội'],
+ ['Tối 21/11','Đám cưới Ruby','VinPalace Cổ Loa, Đông Anh · minhtuan-quynhanh.com','VinPalace Cổ Loa'],
+ ['Sân bay','T3 Tân Sơn Nhất · T1 Nội Bài','VNA làm thủ tục quầy 56–109 tại T3','Nhà ga T3 Sân bay Tân Sơn Nhất']
+];
+
+/* ================= ART (cartoon SVG scenes) ================= */
+const karst = (c,y,seed) => { let d=`M0 300V${y}`; let x=0; const h=[40,90,60,110,70,95,50,120,65,85]; for(let i=0;i<10;i++){const w=44;const t=y-h[(i+seed)%10];d+=` C${x+6} ${t}, ${x+w-6} ${t}, ${x+w} ${y}`;x+=w;} return `<path d="${d}V300z" fill="${c}"/>`; };
+const ART = {
+ trangan:`<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="s1" x2="0" y2="1"><stop offset="0" stop-color="#CDB8F5"/><stop offset="1" stop-color="#F6DCEB"/></linearGradient></defs><rect width="400" height="300" fill="url(#s1)"/><circle cx="300" cy="80" r="28" fill="#FFF3FA" opacity=".9"/>${karst('#B7A0E8',170,0)}${karst('#9C80DA',200,3)}<path d="M120 300V210c0-40 30-70 60-70s60 30 60 70v90z" fill="#5A3E92"/><path d="M140 300v-80c0-28 18-48 40-48s40 20 40 48v80z" fill="#2E2050"/><rect y="230" width="400" height="70" fill="#BFE3F0" opacity=".85"/><path d="M0 240q50-6 100 0t100 0 100 0 100 0" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/><g transform="translate(190 236)"><path d="M-50 10q50 18 100 0l-6 10h-88z" fill="#7A5230"/><circle cx="-24" cy="2" r="5" fill="#2B2238"/><rect x="-28" y="6" width="8" height="8" rx="2" fill="#9C8E5E"/><circle cx="-8" cy="2" r="5" fill="#2B2238"/><rect x="-12" y="6" width="8" height="8" rx="2" fill="#fff"/><path d="M30 -10l10 -8 10 8z" fill="#F4D58D"/><rect x="36" y="-2" width="8" height="14" rx="2" fill="#7E57C2"/><path d="M40 6l14 18" stroke="#7A5230" stroke-width="2"/></g><g fill="#fff" opacity=".8"><path d="M60 60q6-5 12 0q6-5 12 0" stroke="#7E57C2" fill="none" stroke-width="2"/></g></svg>`,
+ tamcoc:`<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="s2" x2="0" y2="1"><stop offset="0" stop-color="#DCCBFA"/><stop offset="1" stop-color="#FBE6F1"/></linearGradient></defs><rect width="400" height="300" fill="url(#s2)"/>${karst('#C2AEEC',150,5)}${karst('#A68ADF',175,1)}<path d="M0 190h400v110H0z" fill="#CDE6B8"/><path d="M0 205h400M0 225h400M0 250h400M0 280h400" stroke="#B6D69C" stroke-width="6"/><path d="M-10 300C80 260 60 220 160 215s140 10 250-25v30c-100 30-140 20-240 25S110 270 40 300z" fill="#A9D8EA"/><g><path d="M150 236q22 8 44 0l-4 6h-36z" fill="#7A5230"/><path d="M168 226l6-6 6 6z" fill="#F4D58D"/><path d="M230 222q18 6 36 0l-3 5h-30z" fill="#7A5230"/><path d="M244 213l5-5 5 5z" fill="#F4D58D"/></g><circle cx="80" cy="70" r="22" fill="#FFF6FB"/></svg>`,
+ hangmua:`<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="s3" x2="0" y2="1"><stop offset="0" stop-color="#B49AE8"/><stop offset=".55" stop-color="#F2B8D6"/><stop offset="1" stop-color="#FDE3D5"/></linearGradient></defs><rect width="400" height="300" fill="url(#s3)"/><circle cx="90" cy="150" r="34" fill="#FFE9D9"/>${karst('#9E86D8',230,2)}<path d="M150 300L230 60l20 0 80 240z" fill="#6E52AE"/><path d="M180 300L236 92l12 0" stroke="none"/><path d="M235 80l-10 30 18 10-14 28 20 12-16 30 22 14-18 34 24 22" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 5" stroke-linecap="round"/><path d="M215 72c10-14 24-10 30-2 8 10 18 4 24-4" fill="none" stroke="#4A3480" stroke-width="7" stroke-linecap="round"/><path d="M265 66l12-6-4 12z" fill="#4A3480"/><path d="M234 54h16l-8-10z" fill="#E58FC0"/><rect x="236" y="54" width="12" height="8" fill="#F3E8FF"/><g fill="#7E57C2"><circle cx="244" cy="48" r="0"/></g><path d="M0 270h400v30H0z" fill="#8A6CC9"/></svg>`,
+ thungui:`<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="s4" x2="0" y2="1"><stop offset="0" stop-color="#D5C3F7"/><stop offset="1" stop-color="#EEF4E6"/></linearGradient></defs><rect width="400" height="300" fill="url(#s4)"/>${karst('#B9A6E6',160,7)}${karst('#8FB89A',190,4)}<rect y="215" width="400" height="85" fill="#BEE0E8"/><ellipse cx="200" cy="206" rx="110" ry="16" fill="#E9DDCB"/><ellipse cx="200" cy="196" rx="80" ry="12" fill="#F3E8D8"/><ellipse cx="200" cy="186" rx="52" ry="9" fill="#FFF6E8"/><g fill="#9B3B3B"><rect x="150" y="120" width="8" height="62"/><rect x="242" y="120" width="8" height="62"/><rect x="196" y="110" width="8" height="72"/></g><path d="M138 122h124l-12-14H150z" fill="#5B3A9A"/><path d="M186 112h28l-6-10h-16z" fill="#5B3A9A"/><path d="M60 300l20-40h240l20 40" fill="#A2C8D6" opacity=".6"/><g opacity=".5"><ellipse cx="200" cy="232" rx="90" ry="8" fill="#fff"/></g><path d="M300 240q16 6 32 0l-3 5h-26z" fill="#7A5230"/></svg>`,
+ hoalu:`<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="s5" x2="0" y2="1"><stop offset="0" stop-color="#241848"/><stop offset="1" stop-color="#5B3A9A"/></linearGradient><radialGradient id="gl"><stop offset="0" stop-color="#FFD9A0"/><stop offset="1" stop-color="#FFD9A0" stop-opacity="0"/></radialGradient></defs><rect width="400" height="300" fill="url(#s5)"/><g fill="#fff" opacity=".8"><circle cx="40" cy="30" r="1.2"/><circle cx="120" cy="50" r="1"/><circle cx="330" cy="40" r="1.4"/><circle cx="260" cy="20" r="1"/><circle cx="370" cy="80" r="1"/></g>${karst('#3B2A6E',170,6)}<path d="M0 200h400v100H0z" fill="#2E1F5C"/><g fill="#4A3480"><path d="M20 200v-40l30-16 30 16v40z"/><path d="M300 200v-46l34-18 34 18v46z"/></g><g fill="#FFC77A"><rect x="32" y="172" width="10" height="12" rx="2"/><rect x="58" y="172" width="10" height="12" rx="2"/><rect x="318" y="168" width="10" height="12" rx="2"/><rect x="344" y="168" width="10" height="12" rx="2"/></g><g transform="translate(200 120)"><path d="M-14 80v-60h28v60z" fill="#F3E8FF"/><path d="M-24 22h48l-10-12h-28z M-20 2h40l-9-11h-22z M-16 -16h32l-8-10h-16z M-10 -32h20l-10-14z" fill="#9575CD"/><rect x="-5" y="36" width="10" height="14" rx="2" fill="#FFC77A"/></g><path d="M200 210v80" stroke="#FFD9A0" stroke-width="18" opacity=".18"/><path d="M0 120q100 30 200 10t200 -10" stroke="#fff" stroke-width="1" fill="none" opacity=".4"/><g>${[40,80,120,160,240,280,320,360].map((x,i)=>`<circle cx="${x}" cy="${128+Math.sin(i)*8}" r="14" fill="url(#gl)"/><ellipse cx="${x}" cy="${128+Math.sin(i)*8}" rx="6" ry="7" fill="${i%2?'#FF9AB8':'#FFB45C'}"/>`).join('')}</g><g>${[90,150,250,310].map(x=>`<g transform="translate(${x} ${245+(x%3)*8})"><circle r="10" fill="url(#gl)"/><path d="M-6 0q6-8 12 0q-6 4-12 0z" fill="#F7A8C2"/></g>`).join('')}</g></svg>`,
+ hanoi:`<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="s6" x2="0" y2="1"><stop offset="0" stop-color="#C9B3F2"/><stop offset="1" stop-color="#F9DDEA"/></linearGradient></defs><rect width="400" height="300" fill="url(#s6)"/><circle cx="320" cy="70" r="26" fill="#FFF0F7"/><g fill="#A98BE0" opacity=".7"><rect x="10" y="120" width="40" height="80"/><rect x="56" y="100" width="30" height="100"/><rect x="330" y="110" width="50" height="90"/></g><rect y="180" width="400" height="120" fill="#B5DCE0"/><g fill="#7FB59A"><circle cx="40" cy="170" r="30"/><circle cx="90" cy="176" r="24"/><circle cx="360" cy="172" r="28"/></g><path d="M40 200C120 150 200 150 280 200" fill="none" stroke="#D2364A" stroke-width="8"/><g stroke="#D2364A" stroke-width="4">${[70,110,150,190,230,260].map(x=>`<path d="M${x} ${200-(x>140&&x<200?34:20)}v${(x>140&&x<200?34:20)}"/>`).join('')}</g><g transform="translate(300 214)"><ellipse rx="34" ry="6" fill="#8CC0A4"/><rect x="-14" y="-40" width="28" height="36" fill="#F2EAD8"/><path d="M-18 -40h36l-6-8h-24z M-14 -48h28l-6-8h-16z M-8 -56h16l-8-10z" fill="#9C8E5E"/><rect x="-5" y="-30" width="10" height="12" rx="5" fill="#B49A6A"/></g><path d="M0 240q60-6 120 0t120 0 160 0" stroke="#fff" stroke-width="2" fill="none" opacity=".6"/></svg>`
+};
+
+/* ================= RENDER ================= */
+const seg=document.getElementById('seg'), days=document.getElementById('days');
+DAYS.forEach((d,i)=>{
+  seg.insertAdjacentHTML('beforeend',`<button data-i="${i}"><b>${d.tab}</b><small>${d.dow}</small></button>`);
+  days.insertAdjacentHTML('beforeend',`<div class="day" id="${d.id}"><div class="day-head"><h3>${d.title}</h3><div style="display:flex;gap:6px;flex-wrap:wrap">${d.tags.map(t=>`<span class="chip">${t}</span>`).join('')}</div></div>
+  <div class="tl">${d.stops.map(s=>`<div class="stop glass ${s[4]?'key':''}"><span class="t">${s[0]}</span><h4>${s[1]}</h4>${s[2]?`<p>${s[2]}</p>`:''}${s[3]?`<div class="links">${s[3].map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">↗ ${l[0]}</a>`).join('')}</div>`:''}</div>`).join('')}</div>${d.note?`<div class="note">${d.note}</div>`:''}</div>`);
+});
+function showDay(i){[...seg.children].forEach((b,j)=>b.classList.toggle('on',i==j));[...days.children].forEach((d,j)=>d.classList.toggle('on',i==j));
+  if(window.gsap) gsap.fromTo('#'+DAYS[i].id+' .stop',{y:24,opacity:0},{y:0,opacity:1,stagger:.05,duration:.6,ease:'power3.out'});
+  try{localStorage.setItem('kt-day',i)}catch(e){} }
+seg.addEventListener('click',e=>{const b=e.target.closest('button');if(b)showDay(+b.dataset.i)});
+(function(){const now=new Date();const start=new Date('2026-11-18T00:00:00+07:00');let i=Math.floor((now-start)/864e5);if(i<0||i>4){try{i=+(localStorage.getItem('kt-day')||0)}catch(e){i=0}}showDay(Math.max(0,Math.min(4,i)))})();
+
+document.getElementById('hscroll').innerHTML=PLACES.map(p=>`<article class="place glass"><div class="art">${ART[p.art]}<span class="num">${p.n}</span></div><div class="body"><h3>${p.name}</h3><div class="kicker">${p.kick}</div><p>${p.desc}</p><div class="facts">${p.f.map(f=>`<div><small>${f[0]}</small><b>${f[1]}</b></div>`).join('')}</div><div class="tip">✦ ${p.tip}</div></div></article>`).join('');
+
+const bento=document.getElementById('bento');
+function renderFood(f){bento.innerHTML=FOOD.filter(x=>f=='all'||x.c==f).map(x=>`<div class="food glass ${x.w?'w':''}"><div class="em">${x.em}</div><h4>${x.name}</h4><div class="where">${x.where}</div><p>${x.d}</p><a href="${M(x.q)}" target="_blank" rel="noopener">↗ Mở bản đồ</a></div>`).join('');
+  if(window.gsap) gsap.fromTo('.food',{y:30,opacity:0,scale:.97},{y:0,opacity:1,scale:1,stagger:.04,duration:.6,ease:'power3.out'});}
+document.getElementById('foodFilter').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;[...b.parentNode.children].forEach(x=>x.classList.toggle('on',x==b));renderFood(b.dataset.f)});
+renderFood('all');
+
+// checklist
+const chk=document.getElementById('check');let saved={};try{saved=JSON.parse(localStorage.getItem('kt-check')||'{}')}catch(e){}
+chk.innerHTML=CHECK.map((c,i)=>`<label class="glass"><input type="checkbox" data-i="${i}" ${saved[i]?'checked':''}><span>${c}</span></label>`).join('');
+function upd(){const all=chk.querySelectorAll('input');const n=[...all].filter(x=>x.checked).length;document.getElementById('pbar').style.width=(n/all.length*100)+'%'}
+chk.addEventListener('change',e=>{saved[e.target.dataset.i]=e.target.checked;try{localStorage.setItem('kt-check',JSON.stringify(saved))}catch(_){}upd()});upd();
+
+// departure calculator
+const fF=document.getElementById('fFlight'),fB=document.getElementById('fBuf'),fR=document.getElementById('fRide');
+const hm=m=>{m=(m+1440)%1440;return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0')};
+function calc(){const [t,ride,route]=fF.value.split('|');const [h,mi]=t.split(':').map(Number);const dep=h*60+mi;const buf=+fB.value||120,r=+fR.value||45;
+  document.getElementById('calcOut').innerHTML=`<div><span>Mở app, đặt Grab</span><b>${hm(dep-buf-r-15)}</b></div><div class="hl"><span>Rời nhà</span><b>${hm(dep-buf-r)}</b></div><div><span>Tới sân bay</span><b>${hm(dep-buf)}</b></div><div><span>Quầy thủ tục đóng</span><b>${hm(dep-60)}</b></div><div><span>Nên có mặt ở cửa ra máy bay</span><b>${hm(dep-45)}</b></div><div><span>Cất cánh</span><b>${t}</b></div>`;
+  document.getElementById('calcRoute').textContent='Lộ trình: '+route+'. Giờ cao điểm / trời mưa: cộng thêm 15–20 phút.';}
+fF.addEventListener('change',()=>{const v=fF.value.split('|');fR.value=v[1];fB.value=v[3];calc()});fB.addEventListener('input',calc);fR.addEventListener('input',calc);calc();
+
+// memories
+const SLOTS=['Sáng ở Tràng An','Trên thuyền Tam Cốc','Đỉnh Hang Múa lúc hoàng hôn','Thung Ui cổ trang','Đèn lồng Hoa Lư','Hồ Tây chiều','Khôi ở đám cưới Ruby','Cà phê trứng Hà Nội'];
+const mg=document.getElementById('memGrid');
+mg.innerHTML=[['moto.jpg','trước chuyến đi ♡'],['beach.jpg','mình đã từng đi biển']].map(m=>`<figure class="mem glass"><img src="assets/${m[0]}" alt="" loading="lazy"><figcaption class="cap">${m[1]}</figcaption></figure>`).join('')+SLOTS.map(s=>`<div class="slot"><span style="font-size:1.6rem">📷</span><b>${s}</b><small>ảnh sẽ nằm ở đây</small></div>`).join('');
+document.getElementById('up').addEventListener('change',e=>{const empty=[...mg.querySelectorAll('.slot:not(.filled)')];[...e.target.files].forEach((f,i)=>{const s=empty[i];if(!s)return;const t=s.querySelector('b').textContent;s.classList.add('filled');s.innerHTML=`<img src="${URL.createObjectURL(f)}" alt=""><span class="hand" style="font-size:1.25rem;color:var(--deep);padding:6px">${t}</span>`;})});
+
+document.getElementById('book-list').innerHTML=BOOK.map(b=>`<div class="addr glass reveal"><small>${b[0]}</small><b>${b[1]}</b><p>${b[2]}</p><a href="${M(b[3])}" target="_blank" rel="noopener">↗ Google Maps</a></div>`).join('');
+
+// countdown
+const target=new Date('2026-11-18T17:00:00+07:00');
+function tick(){let s=Math.max(0,(target-new Date())/1000);const p=n=>String(Math.floor(n)).padStart(2,'0');
+  document.getElementById('cd-d').textContent=p(s/86400);document.getElementById('cd-h').textContent=p(s%86400/3600);document.getElementById('cd-m').textContent=p(s%3600/60);document.getElementById('cd-s').textContent=p(s%60);
+  if(s<=0)document.getElementById('cd-label').textContent='Đang trên hành trình ✈️💜';}
+tick();setInterval(tick,1000);
+
+// glass specular follow
+document.addEventListener('pointermove',e=>{const c=document.getElementById('cursor');c.style.transform=`translate(${e.clientX}px,${e.clientY}px)`;
+  const g=e.target.closest&&e.target.closest('.glass');if(g){const r=g.getBoundingClientRect();g.style.setProperty('--mx',(e.clientX-r.left)+'px');g.style.setProperty('--my',(e.clientY-r.top)+'px')}},{passive:true});
+// double-tap hearts
+let lastTap=0;document.addEventListener('pointerdown',e=>{const n=Date.now();if(n-lastTap<300){for(let i=0;i<5;i++){const h=document.createElement('div');h.className='heart';h.textContent=['💜','🤍','💗'][i%3];h.style.left=(e.clientX-10+(Math.random()*50-25))+'px';h.style.top=(e.clientY-10)+'px';h.style.animationDelay=(i*.06)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),1500)}}lastTap=n});
+
+// nav active state
+const links=[...document.querySelectorAll('.topnav a[href^="#"],.tabbar a')];
+const secIds=['home','us','plan','places','food','fly','memories'];
+function navActive(){let cur='home';for(const id of secIds){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<innerHeight*.4)cur=id}
+  links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')=='#'+cur||(cur=='us'&&a.getAttribute('href')=='#home'&&a.closest('.tabbar'))||(cur=='food'&&a.getAttribute('href')=='#places'&&a.closest('.tabbar'))));
+  const h=document.documentElement;document.getElementById('progress').style.width=(h.scrollTop/(h.scrollHeight-innerHeight)*100)+'%';}
+addEventListener('scroll',navActive,{passive:true});navActive();
+
+/* ================= MOTION ================= */
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(window.gsap && window.ScrollTrigger && !reduce){
+  gsap.registerPlugin(ScrollTrigger); if(window.MotionPathPlugin) gsap.registerPlugin(MotionPathPlugin);
+  let lenis=null;
+  if(window.Lenis){lenis=new Lenis({lerp:.09,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);}
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();lenis?lenis.scrollTo(t,{offset:-10}):t.scrollIntoView({behavior:'smooth'})}));
+
+  // split text
+  document.querySelectorAll('.split').forEach(el=>{const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType==3){const f=document.createDocumentFragment();[...c.textContent].forEach(ch=>{const s=document.createElement('span');s.className='ch';s.textContent=ch===' '?'\u00A0':ch;f.appendChild(s)});c.replaceWith(f)}else walk(c)})};walk(el)});
+  gsap.from('#heroTitle .ch',{yPercent:110,opacity:0,rotate:8,stagger:.06,duration:1.2,ease:'expo.out',delay:.2});
+  gsap.from('#heroInner .chip,#heroInner .sub,#countdown,#cd-label',{y:30,opacity:0,stagger:.12,duration:1,ease:'power3.out',delay:.6});
+
+  // hero: video shrinks into a glass card (OXVA-style product zoom)
+  gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}})
+    .to('#heroFrame',{scale:.82,borderRadius:48,yPercent:6,ease:'none'},0)
+    .to('#heroInner',{yPercent:-40,opacity:0,ease:'none'},0);
+
+  // reveals
+  gsap.utils.toArray('.reveal').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
+
+  // polaroids fan in
+  gsap.from('.polaroid',{y:160,rotate:(i)=>[-30,25,-15,20][i],opacity:0,stagger:.12,duration:1.2,ease:'back.out(1.4)',scrollTrigger:{trigger:'#stack',start:'top 75%'}});
+  gsap.to('.p1',{y:-40,scrollTrigger:{trigger:'#stack',scrub:true}});gsap.to('.p4',{y:40,scrollTrigger:{trigger:'#stack',scrub:true}});
+
+  // counters
+  document.querySelectorAll('[data-count]').forEach(el=>{const v=+el.dataset.count;const o={n:0};gsap.to(o,{n:v,duration:2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 90%'},onUpdate:()=>el.textContent=(v>=1000?'≈':'')+Math.round(o.n).toLocaleString('vi-VN')})});
+
+  // route draw + plane
+  const fp=document.getElementById('flightPath'),bp=document.getElementById('busPath');const L=fp.getTotalLength();
+  gsap.set(fp,{strokeDasharray:L,strokeDashoffset:L});gsap.set(bp,{opacity:0});
+  const rt=gsap.timeline({scrollTrigger:{trigger:'#routeSvg',start:'top 75%',end:'bottom 45%',scrub:1}});
+  rt.to(fp,{strokeDashoffset:0,ease:'none'},0);
+  if(window.MotionPathPlugin) rt.to('#plane',{motionPath:{path:'#flightPath',align:'#flightPath',alignOrigin:[.5,.5],autoRotate:90},ease:'none'},0);
+  rt.to(bp,{opacity:1,duration:.15},'>-0.05');
+
+  // Ninh Binh parallax
+  gsap.utils.toArray('.nb-intro .layer').forEach(l=>gsap.fromTo(l,{yPercent:+l.dataset.speed*60},{yPercent:-(+l.dataset.speed)*20,ease:'none',scrollTrigger:{trigger:'#nbIntro',start:'top bottom',end:'bottom top',scrub:true}}));
+  gsap.fromTo('#sun',{y:80},{y:-60,ease:'none',scrollTrigger:{trigger:'#nbIntro',start:'top bottom',end:'bottom top',scrub:true}});
+  gsap.from('#nbTitle .ch',{yPercent:120,opacity:0,stagger:.05,ease:'expo.out',duration:1.2,scrollTrigger:{trigger:'#nbIntro',start:'top 45%'}});
+  gsap.utils.toArray('.bird').forEach((b,i)=>gsap.to(b,{x:i?-160:200,y:-40,ease:'none',scrollTrigger:{trigger:'#nbIntro',scrub:true}}));
+
+  // places horizontal pin (desktop)
+  ScrollTrigger.matchMedia({
+    '(min-width: 900px)':function(){const hs=document.getElementById('hscroll');
+      const dist=()=>hs.scrollWidth-innerWidth+innerWidth*.04;
+      gsap.to(hs,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#places',start:'top top',end:()=>'+='+dist(),pin:true,scrub:1,invalidateOnRefresh:true}});
+      gsap.utils.toArray('.place .art svg').forEach(s=>gsap.fromTo(s,{scale:1.15},{scale:1,ease:'none',scrollTrigger:{trigger:'#places',start:'top top',end:()=>'+='+dist(),scrub:true}}));
+    }
+  });
+  // magnetic buttons
+  document.querySelectorAll('.btn').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.25,y:(e.clientY-r.top-r.height/2)*.35,duration:.4})});b.addEventListener('pointerleave',()=>gsap.to(b,{x:0,y:0,duration:.6,ease:'elastic.out(1,.4)'}))});
+  addEventListener('load',()=>ScrollTrigger.refresh());
+}
+</script>
+</body>
+</html>
